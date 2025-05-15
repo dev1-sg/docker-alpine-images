@@ -31,9 +31,7 @@ func TestContainersGoPullUbuntu(t *testing.T) {
 		},
 	})
 	require.NoError(t, e)
-	defer func() {
-		_ = container.Terminate(ctx)
-	}()
+	container.Terminate(ctx)
 }
 
 func TestContainersGoExecUbuntu(t *testing.T) {
@@ -41,17 +39,19 @@ func TestContainersGoExecUbuntu(t *testing.T) {
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: Ubuntu.AWS_ECR_PUBLIC_URI + "/" + Ubuntu.DOCKER_IMAGE_GROUP + "/" + Ubuntu.DOCKER_IMAGE + ":" + Ubuntu.DOCKER_IMAGE_TAG,
-			Cmd:   []string{"echo", "Hello, World!"},
+			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
 	})
 	require.NoError(t, e)
-	defer func() {
-		_ = container.Terminate(ctx)
-	}()
-	logs, e := container.Logs(ctx)
+	defer container.Terminate(ctx)
+
+	exitCode, reader, e := container.Exec(ctx, []string{"echo", "Hello, World!"})
 	require.NoError(t, e)
-	output, e := io.ReadAll(logs)
+	require.Equal(t, 0, exitCode)
+
+	output, e := io.ReadAll(reader)
 	require.NoError(t, e)
+
 	require.Contains(t, string(output), "Hello, World!", "Expected output not found")
 }

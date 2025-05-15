@@ -31,6 +31,7 @@ jobs:
 
       - name: 'set shell options globally'
         run: set -euxo pipefail
+        shell: bash
 
       - name: 'setup qemu'
         uses: docker/setup-qemu-action@v3
