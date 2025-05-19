@@ -9,7 +9,7 @@ import (
 	"github.com/testcontainers/testcontainers-go"
 )
 
-var Ubuntu = struct {
+var Node = struct {
 	AWS_DEFAULT_REGION string
 	AWS_ECR_PUBLIC_URI string
 	DOCKER_IMAGE_GROUP string
@@ -27,7 +27,7 @@ func TestContainersGoPullNode(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Ubuntu.AWS_ECR_PUBLIC_URI + "/" + Ubuntu.DOCKER_IMAGE_GROUP + "/" + Ubuntu.DOCKER_IMAGE + ":" + Ubuntu.DOCKER_IMAGE_TAG,
+			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.DOCKER_IMAGE_GROUP + "/" + Node.DOCKER_IMAGE + ":" + Node.DOCKER_IMAGE_TAG,
 		},
 	})
 	require.NoError(t, e)
@@ -38,7 +38,7 @@ func TestContainersGoExecNode(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Ubuntu.AWS_ECR_PUBLIC_URI + "/" + Ubuntu.DOCKER_IMAGE_GROUP + "/" + Ubuntu.DOCKER_IMAGE + ":" + Ubuntu.DOCKER_IMAGE_TAG,
+			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.DOCKER_IMAGE_GROUP + "/" + Node.DOCKER_IMAGE + ":" + Node.DOCKER_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
