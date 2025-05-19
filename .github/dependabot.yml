@@ -13,6 +13,7 @@ updates:
     directories:
       - "/alpine"
       - "/alpine-ci"
+      - "/node"
       - "/ubuntu"
     schedule:
       interval: daily
