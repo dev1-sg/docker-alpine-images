@@ -1,7 +1,7 @@
 # syntax=docker.io/docker/dockerfile:1
 
 FROM docker.io/ubuntu:jammy AS base
-FROM docker.io/node:22.15.1-bookworm AS build
+FROM docker.io/node:24.0.2-bookworm AS build
 
 FROM base AS final
 
