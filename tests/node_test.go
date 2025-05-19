@@ -23,7 +23,7 @@ var Ubuntu = struct {
 	DOCKER_IMAGE_TAG:   "latest",
 }
 
-func TestContainersGoPullUbuntu(t *testing.T) {
+func TestContainersGoPullNode(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
@@ -34,7 +34,7 @@ func TestContainersGoPullUbuntu(t *testing.T) {
 	container.Terminate(ctx)
 }
 
-func TestContainersGoExecUbuntu(t *testing.T) {
+func TestContainersGoExecNode(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
@@ -46,12 +46,12 @@ func TestContainersGoExecUbuntu(t *testing.T) {
 	require.NoError(t, e)
 	defer container.Terminate(ctx)
 
-	exitCode, reader, e := container.Exec(ctx, []string{"echo", "Hello, World!"})
+	exitCode, reader, e := container.Exec(ctx, []string{"node", "--version"})
 	require.NoError(t, e)
 	require.Equal(t, 0, exitCode)
 
 	output, e := io.ReadAll(reader)
 	require.NoError(t, e)
 
-	require.Contains(t, string(output), "Hello, World!", "Expected output not found")
+	require.Contains(t, string(output), "v", "Expected output not found")
 }
