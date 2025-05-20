@@ -8,6 +8,8 @@ FROM base AS final
 ARG YARN_VERSION=1.22.19
 ARG PNPM_VERSION=10.11.0
 
+USER root
+
 ENV TZ=Asia/Singapore \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
@@ -32,7 +34,7 @@ RUN corepack enable \
     && corepack prepare pnpm@${PNPM_VERSION} --activate \
     && corepack prepare yarn@${YARN_VERSION} --activate
 
-WORKDIR /app
-
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
