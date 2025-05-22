@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM docker.io/golang:1.23.9-bookworm AS base
+FROM docker.io/golang:1.24.3-bookworm AS base
 
 USER root
 
