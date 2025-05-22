@@ -13,8 +13,8 @@ ENV TZ=Asia/Singapore \
     POETRY_HOME="/opt/poetry" \
     POETRY_VENV="/opt/poetry/venv" \
     POETRY_CACHE_DIR="/opt/poetry/cache" \
-    POETRY_CONFIG_DIR="/opt/poetry/config" \
-    POETRY_DATA_DIR="/opt/poetry/data"
+    POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_CREATE=false
 
 ENV PATH="${POETRY_HOME}/bin:${PATH}"
 
