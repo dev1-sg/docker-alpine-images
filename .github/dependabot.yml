@@ -12,6 +12,7 @@ updates:
   - package-ecosystem: docker
     directories:
       - "/alpine"
+      - "/debian"
       - "/golang"
       - "/node"
       - "/python"
