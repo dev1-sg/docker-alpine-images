@@ -11,12 +11,12 @@ registries:
 updates:
   - package-ecosystem: docker
     directories:
-      - "/alpine"
-      - "/debian"
-      - "/golang"
-      - "/node"
-      - "/python"
-      - "/ubuntu"
+      - "/src/alpine"
+      - "/src/debian"
+      - "/src/golang"
+      - "/src/node"
+      - "/src/python"
+      - "/src/ubuntu"
     schedule:
       interval: daily
     commit-message:
