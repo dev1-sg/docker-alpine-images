@@ -67,4 +67,4 @@ jobs:
         uses: docker/bake-action@v5
         with:
           targets: push
-          workdir: ./${{env.DOCKER_IMAGE}}
+          workdir: ./src/${{env.DOCKER_IMAGE}}
