@@ -4,8 +4,8 @@ name: 'PR Dependabot ubuntu'
 on:
   pull_request:
     paths:
-      - 'ubuntu/Dockerfile'
-      - 'ubuntu/docker-bake.hcl'
+      - 'src/ubuntu/Dockerfile'
+      - 'src/ubuntu/docker-bake.hcl'
 
 permissions:
   pull-requests: write
@@ -39,7 +39,7 @@ jobs:
         uses: docker/bake-action@v5
         with:
           targets: test
-          workdir: ./${{env.DOCKER_IMAGE}}
+          workdir: ./src/${{env.DOCKER_IMAGE}}
 
       - name: 'dependabot metadata'
         id: metadata
