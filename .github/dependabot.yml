@@ -11,21 +11,21 @@ registries:
 updates:
   - package-ecosystem: docker
     directories:
-      - "/src/alpine"
-      - "/src/debian"
-      - "/src/golang"
-      - "/src/node"
-      - "/src/python"
-      - "/src/ubuntu"
+      - /src/alpine
+      - /src/debian
+      - /src/golang
+      - /src/node
+      - /src/python
+      - /src/ubuntu
     schedule:
       interval: daily
     commit-message:
-      prefix: "build"
-    registries: ["dockerhub-registry"]
+      prefix: build
+    registries: [dockerhub-registry]
 
   - package-ecosystem: gomod
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
     commit-message:
-      prefix: "tests"
+      prefix: tests
