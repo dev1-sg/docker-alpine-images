@@ -25,13 +25,15 @@ var Python = struct {
 
 func TestContainersGoPullPython(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
-		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Python.AWS_ECR_PUBLIC_URI + "/" + Python.DOCKER_IMAGE_GROUP + "/" + Python.DOCKER_IMAGE + ":" + Python.DOCKER_IMAGE_TAG,
-		},
-	})
-	require.NoError(t, e)
-	container.Terminate(ctx)
+	for attempt := 0; attempt < 3; attempt++ {
+		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				Image: Python.AWS_ECR_PUBLIC_URI + "/" + Python.DOCKER_IMAGE_GROUP + "/" + Python.DOCKER_IMAGE + ":" + Python.DOCKER_IMAGE_TAG,
+			},
+		})
+		require.NoError(t, e)
+		container.Terminate(ctx)
+	}
 }
 
 func TestContainersGoExecPython(t *testing.T) {

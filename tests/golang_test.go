@@ -25,13 +25,15 @@ var Golang = struct {
 
 func TestContainersGoPullGolang(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
-		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Golang.AWS_ECR_PUBLIC_URI + "/" + Golang.DOCKER_IMAGE_GROUP + "/" + Golang.DOCKER_IMAGE + ":" + Golang.DOCKER_IMAGE_TAG,
-		},
-	})
-	require.NoError(t, e)
-	container.Terminate(ctx)
+	for attempt := 0; attempt < 3; attempt++ {
+		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				Image: Golang.AWS_ECR_PUBLIC_URI + "/" + Golang.DOCKER_IMAGE_GROUP + "/" + Golang.DOCKER_IMAGE + ":" + Golang.DOCKER_IMAGE_TAG,
+			},
+		})
+		require.NoError(t, e)
+		container.Terminate(ctx)
+	}
 }
 
 func TestContainersGoExecGolang(t *testing.T) {

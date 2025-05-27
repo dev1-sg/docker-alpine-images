@@ -25,13 +25,15 @@ var Node = struct {
 
 func TestContainersGoPullNode(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
-		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.DOCKER_IMAGE_GROUP + "/" + Node.DOCKER_IMAGE + ":" + Node.DOCKER_IMAGE_TAG,
-		},
-	})
-	require.NoError(t, e)
-	container.Terminate(ctx)
+	for attempt := 0; attempt < 3; attempt++ {
+		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.DOCKER_IMAGE_GROUP + "/" + Node.DOCKER_IMAGE + ":" + Node.DOCKER_IMAGE_TAG,
+			},
+		})
+		require.NoError(t, e)
+		container.Terminate(ctx)
+	}
 }
 
 func TestContainersGoExecNode(t *testing.T) {

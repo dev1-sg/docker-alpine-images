@@ -25,13 +25,15 @@ var Ubuntu = struct {
 
 func TestContainersGoPullUbuntu(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
-		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Ubuntu.AWS_ECR_PUBLIC_URI + "/" + Ubuntu.DOCKER_IMAGE_GROUP + "/" + Ubuntu.DOCKER_IMAGE + ":" + Ubuntu.DOCKER_IMAGE_TAG,
-		},
-	})
-	require.NoError(t, e)
-	container.Terminate(ctx)
+	for attempt := 0; attempt < 3; attempt++ {
+		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				Image: Ubuntu.AWS_ECR_PUBLIC_URI + "/" + Ubuntu.DOCKER_IMAGE_GROUP + "/" + Ubuntu.DOCKER_IMAGE + ":" + Ubuntu.DOCKER_IMAGE_TAG,
+			},
+		})
+		require.NoError(t, e)
+		container.Terminate(ctx)
+	}
 }
 
 func TestContainersGoExecUbuntu(t *testing.T) {

@@ -25,13 +25,15 @@ var Alpine = struct {
 
 func TestContainersGoPullAlpine(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
-		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Alpine.AWS_ECR_PUBLIC_URI + "/" + Alpine.DOCKER_IMAGE_GROUP + "/" + Alpine.DOCKER_IMAGE + ":" + Alpine.DOCKER_IMAGE_TAG,
-		},
-	})
-	require.NoError(t, e)
-	container.Terminate(ctx)
+	for attempt := 0; attempt < 3; attempt++ {
+		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				Image: Alpine.AWS_ECR_PUBLIC_URI + "/" + Alpine.DOCKER_IMAGE_GROUP + "/" + Alpine.DOCKER_IMAGE + ":" + Alpine.DOCKER_IMAGE_TAG,
+			},
+		})
+		require.NoError(t, e)
+		container.Terminate(ctx)
+	}
 }
 
 func TestContainersGoExecAlpine(t *testing.T) {
