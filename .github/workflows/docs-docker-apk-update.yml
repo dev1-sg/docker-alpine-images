@@ -68,7 +68,7 @@ jobs:
           git config pull.rebase false
           git checkout main
           git pull origin main
-          git add readme.md
+          git add .
           git commit -m 'Automated documentation update [skip ci]' || echo "No changes to commit"
 
           if ! git push origin main; then
