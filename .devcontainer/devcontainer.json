@@ -1,12 +1,11 @@
 {
-  "image": "public.ecr.aws/dev1-sg/devcontainer/ubuntu-base:latest",
+  "image": "public.ecr.aws/dev1-sg/devcontainer/dev-base:latest",
   "name": "dev1-sg-docker-base-images",
   "features": {
       "ghcr.io/dev1-sg/devcontainers/common-utils:1": {},
       "ghcr.io/dev1-sg/devcontainers/docker-in-docker:latest": {},
       "ghcr.io/dev1-sg/devcontainers/aws-cli:1": {},
-      "ghcr.io/dev1-sg/devcontainers/github-cli:1": {},
-      "ghcr.io/dev1-sg/devcontainers/golang:1": {}
+      "ghcr.io/dev1-sg/devcontainers/github-cli:1": {}
   },
   "customizations": {
     "vscode": {
