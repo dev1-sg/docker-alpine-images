@@ -1,5 +1,5 @@
 ---
-name: Docs apk update
+name: Docs debian package update
 
 on:
   schedule:
@@ -54,9 +54,9 @@ jobs:
         working-directory: docs
         run: |
           if [ "${{ matrix.arch }}" == "amd64" ]; then
-            python3 query-alpine-amd64-apk-info.py
+            python3 query-debian-amd64-package-info.py
           else
-            python3 query-alpine-arm64-apk-info.py
+            python3 query-debian-arm64-package-info.py
           fi
 
       - name: 'commit update'

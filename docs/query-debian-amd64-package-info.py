@@ -1,24 +1,27 @@
+DOCS_OUTPUT = "../src/debian/package_amd64.md"
+REGSITRY_ARCH = "linux/amd64"
+REGISTRY_FULL_URI = "public.ecr.aws/dev1-sg/base/debian:latest"
+
 import docker
 
 client = docker.from_env()
 
-image_name = "public.ecr.aws/dev1-sg/base/alpine:latest"
-platform = "linux/arm64"
+image_name = REGISTRY_FULL_URI
+platform = REGISTRY_ARCH
 
 print(f"Pulling image: {image_name} for platform {platform}")
 client.images.pull(image_name, platform=platform)
 
 output = client.containers.run(
     image=image_name,
-    command="apk info -v",
+    command="apt list",
     remove=True,
     platform=platform
 )
 
-output_file = "../src/alpine/amd64_apk_info.md"
+output_file = DOCS_OUTPUT
 
 with open(output_file, "wb") as f:
-    for pkg in output.split(b" "):
-        f.write(pkg + b"\n")
+    f.write(output)
 
 print(f"Output saved to {output_file}")
