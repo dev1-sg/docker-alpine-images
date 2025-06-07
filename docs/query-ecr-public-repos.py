@@ -7,6 +7,8 @@ REGISTRY_ENDPOINT_REGION = "us-east-1"
 REGISTRY_ENDPOINT_URL = f"https://ecr-public.{REGISTRY_ENDPOINT_REGION}.amazonaws.com"
 
 from datetime import datetime
+from zoneinfo import ZoneInfo
+from tzlocal import get_localzone_name
 import boto3
 from botocore.config import Config
 from jinja2 import Template
@@ -46,7 +48,8 @@ def get_latest_tags(client, repo_name):
         return ["N/A"]
 
 def main():
-    now_local = datetime.now().strftime("%Y-%m-%d %H:%M %Z")
+    system_tz = get_localzone_name()
+    now_local = datetime.now(ZoneInfo(system_tz)).strftime("%Y-%m-%d %H:%M %Z")
 
     template = Template(load_template(DOCS_TEMPLATE).strip())
     client = get_ecr_client()
