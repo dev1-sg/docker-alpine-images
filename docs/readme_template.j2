@@ -14,3 +14,7 @@ readme Docs are updated daily. Please check the gallery for the latest updates.
 {% for item in items -%}
 | {{ item.number }} | [{{ item.name }}](https://gallery.ecr.aws/dev1-sg/{{ item.name }}) | {{ item.group }} | {{ item.uri }} | {{ item.latest_tag }} |
 {% endfor %}
+
+---
+
+last_updated: {{ updated_at }}_
