@@ -1,28 +1,33 @@
+DOCS_OUTPUT = "dev1-sg-base-ecr-public-repos.md"
+REGISTRY_ALIAS = "dev1-sg"
+REGISTRY_GROUP = "base"
+REGISTRY_URI = f"public.ecr.aws/{REGISTRY_ALIAS}"
+REGISTRY_ENDPOINT_REGION = "us-east-1"
+REGISTRY_ENDPOINT_URL = f"https://ecr-public.{REGISTRY_ENDPOINT_REGION}.amazonaws.com"
+
 import boto3
 from botocore.config import Config
 from jinja2 import Template
-
-REGISTRY_ALIAS = "dev1-sg"
-REGISTRY_URI = f"public.ecr.aws/{REGISTRY_ALIAS}"
-
 
 def load_template(path):
     with open(path) as f:
         return f.read()
 
-
 def get_ecr_client():
     return boto3.Session().client(
         "ecr-public",
-        region_name="us-east-1",
-        endpoint_url="https://ecr-public.us-east-1.amazonaws.com",
+        region_name=REGISTRY_ENDPOINT_REGION,
+        endpoint_url=REGISTRY_ENDPOINT_URL,
         config=Config(signature_version='v4')
     )
 
-def get_repositories(client):
+def get_repositories(client, prefix=None):
     repos = []
     for page in client.get_paginator("describe_repositories").paginate():
-        repos.extend(page.get("repositories", []))
+        for repo in page.get("repositories", []):
+            name = repo["repositoryName"]
+            if prefix is None or name.startswith(prefix):
+                repos.append(repo)
     return repos
 
 def get_latest_tags(client, repo_name):
@@ -38,12 +43,11 @@ def get_latest_tags(client, repo_name):
         print(f"[Warning] Failed to fetch tags for '{repo_name}': {e}")
         return ["N/A"]
 
-
 def main():
     template = Template(load_template("template.j2").strip())
     client = get_ecr_client()
 
-    repos = sorted(get_repositories(client), key=lambda r: r["repositoryName"])
+    repos = sorted(get_repositories(client, prefix=REGISTRY_GROUP + "/"), key=lambda r: r["repositoryName"])
 
     items = []
     for i, repo in enumerate(repos, 1):
@@ -58,7 +62,7 @@ def main():
 
     output = template.render(items=items)
     print(output)
-    with open("ecr_public_repos.md", "w") as f:
+    with open(DOCS_OUTPUT, "w") as f:
         f.write(output)
 
 
