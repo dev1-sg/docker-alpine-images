@@ -50,21 +50,16 @@ jobs:
         working-directory: docs
         run: python3 query-ecr-public-repos.py
 
-      - name: 'create pr for documentation'
-        id: push_image_info
+      - name: 'commit update'
         env:
-          GITHUB_TOKEN: ${{env.GH_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Start."
           git config --global user.email github-actions[bot]@users.noreply.github.com
           git config --global user.name github-actions[bot]
           git config pull.rebase false
-          branch=automated-documentation-update-$GITHUB_RUN_ID
-          git checkout -b $branch
-          message='Automated documentation update'
+          git checkout main
+          git pull origin main
           git add readme.md
-          git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
-          if [ "$NO_UPDATES" != "true" ] ; then
-              git push origin "$branch"
-              gh pr create --title "$message" --body "$message"
-          fi
+          git commit -m 'Automated documentation update [skip ci]'
+          git push origin main
