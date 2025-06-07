@@ -53,9 +53,9 @@ jobs:
         working-directory: docs
         run: |
           if [ "${{ matrix.arch }}" == "amd64" ]; then
-            python3 query-amd64-apk-info.py
+            python3 query-alpine-amd64-apk-info.py
           else
-            python3 query-arm64-apk-info.py
+            python3 query-alpine-arm64-apk-info.py
           fi
 
       - name: 'commit update'
