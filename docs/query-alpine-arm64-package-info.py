@@ -1,5 +1,5 @@
 DOCS_OUTPUT = "../src/alpine/package_arm64.md"
-REGSITRY_ARCH = "linux/arm64"
+REGISTRY_ARCH = "linux/arm64"
 REGISTRY_FULL_URI = "public.ecr.aws/dev1-sg/base/alpine:latest"
 
 import docker
