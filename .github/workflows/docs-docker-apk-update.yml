@@ -52,9 +52,9 @@ jobs:
       - name: Run architecture-specific script
         run: |
           if [ "${{ matrix.arch }}" == "amd64" ]; then
-            python3 docs/docs-query-amd64-apk-info.py
+            python3 docs/query-amd64-apk-info.py
           else
-            python3 docs/docs-query-arm64-apk-info.py
+            python3 docs/query-arm64-apk-info.py
           fi
 
       - name: 'commit update'
