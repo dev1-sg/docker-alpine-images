@@ -19,13 +19,11 @@ def get_ecr_client():
         config=Config(signature_version='v4')
     )
 
-
 def get_repositories(client):
     repos = []
     for page in client.get_paginator("describe_repositories").paginate():
         repos.extend(page.get("repositories", []))
     return repos
-
 
 def get_latest_tags(client, repo_name):
     try:
