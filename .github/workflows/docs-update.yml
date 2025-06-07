@@ -2,6 +2,8 @@
 name: Docs update
 
 on:
+  schedule:
+    - cron: '0 8 * * *'  # Every day at 8:00 AM UTC
   workflow_dispatch:
 
 permissions:
