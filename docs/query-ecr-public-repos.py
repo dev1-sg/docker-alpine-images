@@ -1,4 +1,4 @@
-DOCS_OUTPUT = "dev1-sg-base-ecr-public-repos.md"
+DOCS_OUTPUT = "../readme.md"
 REGISTRY_ALIAS = "dev1-sg"
 REGISTRY_GROUP = "base"
 REGISTRY_URI = f"public.ecr.aws/{REGISTRY_ALIAS}"
