@@ -1,0 +1,36 @@
+---
+name: Docs update
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+  DOCKER_IMAGE_GROUP: ci
+  DOCKER_IMAGE: golang
+
+jobs:
+  run-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set shell options
+        run: set -euxo pipefail
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+        working-directory: docs
+
+      - name: Run Python script
+        working-directory: docs
+        run: python3 docs/query-ecr-public-repos.py
