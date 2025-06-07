@@ -33,4 +33,4 @@ jobs:
 
       - name: Run Python script
         working-directory: docs
-        run: python3 docs/query-ecr-public-repos.py
+        run: python3 query-ecr-public-repos.py
