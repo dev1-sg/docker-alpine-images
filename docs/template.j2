@@ -1,5 +1,5 @@
 | Number | Repository Name | Group | URI | Latest Tag |
-|--------|------------------|--------|------------------------------|-------------|
+|--------|-----------------|-------|-----|------------|
 {% for item in items -%}
-| {{ item.number }} | {{ item.name }} | {{ item.group }} | {{ item.uri }} | {{ item.tags | join(', ') }} |
+| {{ item.number }} | {{ item.name }} | {{ item.group }} | {{ item.uri }} | {{ item.latest_tag }} |
 {% endfor %}
