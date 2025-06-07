@@ -47,9 +47,8 @@ def get_latest_tags(client, repo_name):
 
 def main():
     now_local = datetime.now().strftime("%Y-%m-%d %H:%M %Z")
-    output = template.render(items=items, updated_at=now_local)
 
-    template = Template(load_template("readme_template.j2").strip())
+    template = Template(load_template(DOCS_TEMPLATE).strip())
     client = get_ecr_client()
 
     repos = sorted(get_repositories(client, prefix=REGISTRY_GROUP + "/"), key=lambda r: r["repositoryName"])
@@ -65,7 +64,7 @@ def main():
             "latest_tag": get_latest_tags(client, name)[0],
         })
 
-    output = template.render(items=items)
+    output = template.render(items=items, updated_at=now_local)
     print(output)
     with open(DOCS_OUTPUT, "w") as f:
         f.write(output)
