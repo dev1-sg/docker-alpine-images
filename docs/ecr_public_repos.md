@@ -2,6 +2,7 @@
 
 [https://gallery.ecr.aws/dev1-sg/](https://gallery.ecr.aws/dev1-sg/)
 
+
 | Number | Repository Name | Group | URI | Latest Tag |
 |--------|-----------------|-------|-----|------------|
 | 1 | [base/alpine](https://gallery.ecr.aws/dev1-sg/base/alpine) | base | public.ecr.aws/dev1-sg/base/alpine | 3.21 |
