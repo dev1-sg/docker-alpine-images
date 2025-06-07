@@ -15,9 +15,10 @@ output = client.containers.run(
     platform=platform
 )
 
-output_file = "../src/alpine/arm64_apk_info.md"
+output_file = "../src/alpine/amd64_apk_info.md"
 
 with open(output_file, "wb") as f:
-    f.write(output)
+    for pkg in output.split(b" "):
+        f.write(pkg + b"\n")
 
 print(f"Output saved to {output_file}")
