@@ -1,4 +1,5 @@
 DOCS_OUTPUT = "../readme.md"
+DOCS_TEMPLATE = "readme_template.j2"
 REGISTRY_ALIAS = "dev1-sg"
 REGISTRY_GROUP = "base"
 REGISTRY_URI = f"public.ecr.aws/{REGISTRY_ALIAS}"
@@ -44,7 +45,7 @@ def get_latest_tags(client, repo_name):
         return ["N/A"]
 
 def main():
-    template = Template(load_template("template.j2").strip())
+    template = Template(load_template("readme_template.j2").strip())
     client = get_ecr_client()
 
     repos = sorted(get_repositories(client, prefix=REGISTRY_GROUP + "/"), key=lambda r: r["repositoryName"])
@@ -64,7 +65,6 @@ def main():
     print(output)
     with open(DOCS_OUTPUT, "w") as f:
         f.write(output)
-
 
 if __name__ == "__main__":
     main()
