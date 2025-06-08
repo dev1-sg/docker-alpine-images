@@ -4,15 +4,15 @@
 
 **os_name**: Debian GNU/Linux
 
-**os_id**: debian
+**os_version_id**: 12
 
-**os_version**: 12
+**os_id**: debian
 
 ## Environment Variables
 
 ```bash
 PATH=/go/bin:/usr/local/go/bin:/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=3b306a07ea3d
+HOSTNAME=eed80fe9c96a
 GOLANG_VERSION=1.24.3
 GOTOOLCHAIN=local
 GOPATH=/go
@@ -23,10 +23,16 @@ LC_ALL=en_US.UTF-8
 HOME=/root
 ```
 
+## Local Packages
+
+```bash
+go
+gofmt
+```
+
 ## System Packages
 
 ```bash
-Listing...
 adduser/now 3.134 all [installed,local]
 apt/now 2.6.1 amd64 [installed,local]
 base-files/now 12.4+deb12u11 amd64 [installed,local]
@@ -236,13 +242,7 @@ wget/now 1.21.3-1+deb12u1 amd64 [installed,local]
 zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 ```
 
-## Local Packages
-
-```bash
-go
-gofmt
-```
 
 ---
 
-last_updated: ('Sun Jun  8 13:42:44 2025', '+08')
+last_updated: ('Sun Jun  8 16:09:52 2025', '+08')
