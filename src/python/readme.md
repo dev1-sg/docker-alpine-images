@@ -4,34 +4,48 @@
 
 **os_name**: Debian GNU/Linux
 
-**os_id**: debian
+**os_version_id**: 12
 
-**os_version**: 12
+**os_id**: debian
 
 ## Environment Variables
 
 ```bash
-PATH=/opt/poetry/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=6ed57d364f58
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=df7fdc9c6d47
 GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305
-PYTHON_VERSION=3.13.3
-PYTHON_SHA256=40f868bcbdeb8149a3149580bb9bfd407b3321cd48f0be631af955ac92c0e041
+PYTHON_VERSION=3.13.4
+PYTHON_SHA256=27b15a797562a2971dce3ffe31bb216042ce0b995b39d768cf15f784cc757365
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
 LC_ALL=en_US.UTF-8
-POETRY_HOME=/opt/poetry
-POETRY_VENV=/opt/poetry/venv
-POETRY_CACHE_DIR=/opt/poetry/cache
-POETRY_NO_INTERACTION=1
-POETRY_VIRTUALENVS_CREATE=false
 HOME=/root
+```
+
+## Local Packages
+
+```bash
+idle
+idle3
+idle3.13
+pip
+pip3
+pip3.13
+pydoc
+pydoc3
+pydoc3.13
+python
+python3
+python3.13
+python3.13-config
+python3-config
+python-config
 ```
 
 ## System Packages
 
 ```bash
-Listing...
 adduser/now 3.134 all [installed,local]
 apt/now 2.6.1 amd64 [installed,local]
 autoconf/now 2.71-3 all [installed,local]
@@ -465,40 +479,7 @@ zlib1g-dev/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 ```
 
-## Local Packages
-
-```bash
-doesitcache
-dul-receive-pack
-dul-upload-pack
-dulwich
-findpython
-httpx
-idle
-idle3
-idle3.13
-keyring
-normalizer
-pbs-install
-pip
-pip3
-pip3.13
-pkginfo
-poetry
-pydoc
-pydoc3
-pydoc3.13
-pyproject-build
-python
-python3
-python3.13
-python3.13-config
-python3-config
-python-config
-trove-classifiers
-virtualenv
-```
 
 ---
 
-last_updated: ('Sun Jun  8 13:46:13 2025', '+08')
+last_updated: ('Sun Jun  8 16:22:46 2025', '+08')
