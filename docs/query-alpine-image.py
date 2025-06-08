@@ -54,7 +54,7 @@ def main():
     pkg_output_str = run_container_command(client, image_name, "apk info", arch)
     pkg_vars = pkg_output_str.strip().splitlines()
 
-    local_output_str = run_container_command(client, image_name, "ls -l /usr/local/bin", arch)
+    local_output_str = run_container_command(client, image_name, "ls -1 /usr/local/bin", arch)
     pkg_local = local_output_str.strip().splitlines()
 
     with open(INPUT_TEMPLATE) as tpl_file:
