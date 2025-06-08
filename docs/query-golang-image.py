@@ -51,7 +51,7 @@ def main():
     env_output_str = run_container_command(client, image_name, "env", arch)
     env_vars = env_output_str.strip().splitlines()
 
-    pkg_output_str = run_container_command(client, image_name, "apt list", arch)
+    pkg_output_str = run_container_command(client, image_name, "apt list | tail -n +2", arch)
     pkg_vars = pkg_output_str.strip().splitlines()
 
     local_output_str = run_container_command(client, image_name, "ls -1 /usr/local/go/bin", arch)

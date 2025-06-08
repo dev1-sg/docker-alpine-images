@@ -16,6 +16,14 @@
 {% endfor %}
 ```
 
+## Local Packages
+
+```bash
+{% for var in context.pkg_local %}
+{{ var }}
+{% endfor %}
+```
+
 ## System Packages
 
 ```bash
@@ -24,13 +32,6 @@
 {% endfor %}
 ```
 
-## Local Packages
-
-```bash
-{% for var in context.pkg_local %}
-{{ var }}
-{% endfor %}
-```
 
 ---
 
