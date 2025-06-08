@@ -4,16 +4,16 @@
 
 **os_name**: Debian GNU/Linux
 
-**os_id**: debian
+**os_version_id**: 12
 
-**os_version**: 12
+**os_id**: debian
 
 ## Environment Variables
 
 ```bash
 LANGUAGE=en_US:en
 NODE_VERSION=24.0.2
-HOSTNAME=6a63bd5ff264
+HOSTNAME=179a248ec60d
 YARN_VERSION=1.22.22
 HOME=/root
 PATH=/opt/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -24,10 +24,24 @@ TZ=Asia/Singapore
 PNPM_HOME=/opt/pnpm
 ```
 
+## Local Packages
+
+```bash
+corepack
+docker-entrypoint.sh
+node
+nodejs
+npm
+npx
+pnpm
+pnpx
+yarn
+yarnpkg
+```
+
 ## System Packages
 
 ```bash
-Listing...
 adduser/now 3.134 all [installed,local]
 apt/now 2.6.1 amd64 [installed,local]
 autoconf/now 2.71-3 all [installed,local]
@@ -445,21 +459,7 @@ zlib1g-dev/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 ```
 
-## Local Packages
-
-```bash
-corepack
-docker-entrypoint.sh
-node
-nodejs
-npm
-npx
-pnpm
-pnpx
-yarn
-yarnpkg
-```
 
 ---
 
-last_updated: ('Sun Jun  8 13:41:01 2025', '+08')
+last_updated: ('Sun Jun  8 16:13:16 2025', '+08')
