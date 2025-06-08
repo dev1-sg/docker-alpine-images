@@ -1,0 +1,35 @@
+## Image Metadata
+
+### Operating System
+
+**Image**: {{ context.image }}
+
+**os_name**: {{ context.os_name }}
+
+**os_id**: {{ context.os_id }}
+
+**os_version**: {{ context.os_version }}
+
+### Environment Variables
+
+```bash
+{% for var in context.env_vars %}
+{{ var }}
+{% endfor %}
+```
+
+### System Packages
+
+```bash
+{% for var in context.pkg_vars %}
+{{ var }}
+{% endfor %}
+```
+
+### Local Packages
+
+```bash
+{% for var in context.pkg_local %}
+{{ var }}
+{% endfor %}
+```
