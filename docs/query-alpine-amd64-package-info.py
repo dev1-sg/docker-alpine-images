@@ -1,4 +1,4 @@
-DOCS_OUTPUT = "../src/alpine/package_amd64.md"
+DOCS_OUTPUT = "../src/alpine/package_amd64.txt"
 REGISTRY_ARCH = "linux/amd64"
 REGISTRY_FULL_URI = "public.ecr.aws/dev1-sg/base/alpine:latest"
 

@@ -1,4 +1,4 @@
-DOCS_OUTPUT = "../src/debian/package_arm64.md"
+DOCS_OUTPUT = "../src/debian/package_arm64.txt"
 REGISTRY_ARCH = "linux/arm64"
 REGISTRY_FULL_URI = "public.ecr.aws/dev1-sg/base/debian:latest"
 
