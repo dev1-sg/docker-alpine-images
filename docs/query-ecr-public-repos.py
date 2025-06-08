@@ -57,6 +57,7 @@ def get_latest_tag_and_size(client, repo_name):
         return "N/A", 0
 
 def main():
+    updated_time = now.strftime("%c"), now.tzname()
     template = Template(load_template(INPUT_TEMPLATE), trim_blocks=True, lstrip_blocks=True)
     client = get_ecr_client()
 
@@ -75,7 +76,7 @@ def main():
             "size": f"{size / (1024 * 1024):.2f} MB" if size else "N/A",
         })
 
-    output = template.render(items=items, updated_at=now)
+    output = template.render(items=items, updated_at=updated_time)
     print(output)
     with open(OUTPUT_README, "w") as f:
         f.write(output)
