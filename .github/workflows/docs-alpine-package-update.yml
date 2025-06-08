@@ -1,5 +1,5 @@
 ---
-name: Docs alpine package update
+name: Docs alpine update
 
 on:
   schedule:

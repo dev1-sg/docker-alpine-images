@@ -1,5 +1,5 @@
 ---
-name: Docs update
+name: Docs readme update
 
 on:
   schedule:
