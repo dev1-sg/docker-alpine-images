@@ -4,7 +4,7 @@ This repository contains Dockerfiles for building Docker base images.
 
 The repository is configured to automatically update and rebuild Docker images using Dependabot. Dependabot monitors each Dockerfile and creates pull requests to update them when new versions are available.
 
-readme Docs are updated daily. Please check the gallery for the latest updates.
+readme Docs are updated daily. Please check the regsitry gallery for the latest updates.
 
 [https://gallery.ecr.aws/dev1-sg/](https://gallery.ecr.aws/dev1-sg/)
 
@@ -20,4 +20,4 @@ readme Docs are updated daily. Please check the gallery for the latest updates.
 
 ---
 
-last_updated: ('Sun Jun  8 11:53:43 2025', ('C', 'UTF-8'), '+08')
+last_updated: 2025-06-08 11:59:27.232339+08:00
