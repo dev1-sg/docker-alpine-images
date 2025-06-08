@@ -4,15 +4,15 @@
 
 **os_name**: Alpine Linux
 
-**os_id**: alpine
+**os_version_id**: 3.21.3
 
-**os_version**: 3.21.3
+**os_id**: alpine
 
 ## Environment Variables
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=4f7cc7115731
+HOSTNAME=cfacb6fdb191
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -48,4 +48,4 @@ zlib
 
 ---
 
-last_updated: ('Sun Jun  8 15:53:11 2025', '+08')
+last_updated: ('Sun Jun  8 16:01:07 2025', '+08')

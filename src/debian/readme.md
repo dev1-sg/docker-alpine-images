@@ -4,15 +4,15 @@
 
 **os_name**: Debian GNU/Linux
 
-**os_id**: debian
+**os_version_id**: 12
 
-**os_version**: 12
+**os_id**: debian
 
 ## Environment Variables
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=54963ed582c2
+HOSTNAME=aa3acc621ebd
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -20,10 +20,14 @@ LC_ALL=en_US.UTF-8
 HOME=/root
 ```
 
+## Local Packages
+
+```bash
+```
+
 ## System Packages
 
 ```bash
-Listing...
 adduser/now 3.134 all [installed,local]
 apt/now 2.6.1 amd64 [installed,local]
 base-files/now 12.4+deb12u11 amd64 [installed,local]
@@ -119,11 +123,7 @@ util-linux/now 2.38.1-5+deb12u3 amd64 [installed,local]
 zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 ```
 
-## Local Packages
-
-```bash
-```
 
 ---
 
-last_updated: ('Sun Jun  8 13:40:53 2025', '+08')
+last_updated: ('Sun Jun  8 16:05:35 2025', '+08')
