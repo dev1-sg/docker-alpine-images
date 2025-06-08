@@ -13,13 +13,11 @@ IMAGE_URI = "public.ecr.aws/dev1-sg/base/alpine:latest"
 
 def pull_image(client, image_name):
     print(f"Pulling image: {image_name}")
-    image = client.images.pull(image_name)
-    return image
+    return client.images.pull(image_name)
 
 def get_image_architecture(client, image):
     image_details = client.images.get(image.id)
-    arch = image_details.attrs.get("Architecture", "unknown")
-    return arch
+    return image_details.attrs.get("Architecture", "unknown")
 
 def run_container_command(client, image_name, command, arch):
     output = client.containers.run(

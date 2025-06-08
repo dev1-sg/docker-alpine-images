@@ -30,7 +30,8 @@ def get_ecr_client():
 
 def get_repositories(client, prefix=None):
     repos = []
-    for page in client.get_paginator("describe_repositories").paginate():
+    paginator = client.get_paginator("describe_repositories")
+    for page in paginator.paginate():
         for repo in page.get("repositories", []):
             name = repo["repositoryName"]
             if prefix is None or name.startswith(prefix):
