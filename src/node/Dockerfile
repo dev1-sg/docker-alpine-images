@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM docker.io/node:24.1.0-bookworm AS base
+FROM docker.io/node:22.16.0-bookworm AS base
 
 USER root
 
