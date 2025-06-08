@@ -1,6 +1,4 @@
-## Image Metadata
-
-### Operating System
+## Operating System
 
 **Image**: {{ context.image }}
 
@@ -10,7 +8,7 @@
 
 **os_version**: {{ context.os_version }}
 
-### Environment Variables
+## Environment Variables
 
 ```bash
 {% for var in context.env_vars %}
@@ -18,7 +16,7 @@
 {% endfor %}
 ```
 
-### System Packages
+## System Packages
 
 ```bash
 {% for var in context.pkg_vars %}
@@ -26,7 +24,7 @@
 {% endfor %}
 ```
 
-### Local Packages
+## Local Packages
 
 ```bash
 {% for var in context.pkg_local %}
