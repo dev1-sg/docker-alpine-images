@@ -1,7 +1,0 @@
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=f88a572b6996
-TZ=Asia/Singapore
-LANG=en_US.UTF-8
-LANGUAGE=en_US:en
-LC_ALL=en_US.UTF-8
-HOME=/root

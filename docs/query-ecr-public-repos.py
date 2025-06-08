@@ -1,17 +1,20 @@
-DOCS_OUTPUT = "../readme.md"
-DOCS_TEMPLATE = "readme_template.j2"
+import locale
+from datetime import datetime
+
+now = datetime.now().astimezone()
+print(now.strftime("%c"), locale.getlocale(), now.tzname())
+
+import boto3
+from botocore.config import Config
+from jinja2 import Template
+
+INPUT_TEMPLATE = "readme_template.j2"
+OUTPUT_README = "../readme.md"
 REGISTRY_ALIAS = "dev1-sg"
 REGISTRY_GROUP = "base"
 REGISTRY_URI = f"public.ecr.aws/{REGISTRY_ALIAS}"
 REGISTRY_ENDPOINT_REGION = "us-east-1"
 REGISTRY_ENDPOINT_URL = f"https://ecr-public.{REGISTRY_ENDPOINT_REGION}.amazonaws.com"
-
-from datetime import datetime
-from zoneinfo import ZoneInfo
-from tzlocal import get_localzone_name
-import boto3
-from botocore.config import Config
-from jinja2 import Template
 
 def load_template(path):
     with open(path) as f:
@@ -54,10 +57,9 @@ def get_latest_tag_and_size(client, repo_name):
         return "N/A", 0
 
 def main():
-    system_tz = get_localzone_name()
-    now_local = datetime.now(ZoneInfo(system_tz)).strftime("%Y-%m-%d %H:%M %Z")
+    now_local = now.strftime("%c"), locale.getlocale(), now.tzname()
 
-    template = Template(load_template(DOCS_TEMPLATE), trim_blocks=True, lstrip_blocks=True)
+    template = Template(load_template(INPUT_TEMPLATE), trim_blocks=True, lstrip_blocks=True)
     client = get_ecr_client()
 
     repos = sorted(get_repositories(client, prefix=REGISTRY_GROUP + "/"), key=lambda r: r["repositoryName"])
@@ -77,7 +79,7 @@ def main():
 
     output = template.render(items=items, updated_at=now_local)
     print(output)
-    with open(DOCS_OUTPUT, "w") as f:
+    with open(OUTPUT_README, "w") as f:
         f.write(output)
 
 if __name__ == "__main__":
