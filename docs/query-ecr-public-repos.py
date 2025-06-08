@@ -1,9 +1,5 @@
 import locale
 from datetime import datetime
-
-now = datetime.now().astimezone()
-print(now.strftime("%c"), now.tzname(), locale.getlocale())
-
 import boto3
 from botocore.config import Config
 from jinja2 import Template
@@ -15,6 +11,10 @@ REGISTRY_GROUP = "base"
 REGISTRY_URI = f"public.ecr.aws/{REGISTRY_ALIAS}"
 REGISTRY_ENDPOINT_REGION = "us-east-1"
 REGISTRY_ENDPOINT_URL = f"https://ecr-public.{REGISTRY_ENDPOINT_REGION}.amazonaws.com"
+
+def get_now():
+    now = datetime.now().astimezone()
+    return now
 
 def load_template(path):
     with open(path) as f:
@@ -57,7 +57,8 @@ def get_latest_tag_and_size(client, repo_name):
         return "N/A", 0
 
 def main():
-    updated_time = now.strftime("%c"), now.tzname()
+    print(now.strftime("%c"), now.tzname(), locale.getlocale())
+    now = get_now()
     template = Template(load_template(INPUT_TEMPLATE), trim_blocks=True, lstrip_blocks=True)
     client = get_ecr_client()
 
@@ -76,7 +77,7 @@ def main():
             "size": f"{size / (1024 * 1024):.2f} MB" if size else "N/A",
         })
 
-    output = template.render(items=items, updated_at=updated_time)
+    output = template.render(items=items, updated_at=now)
     print(output)
     with open(OUTPUT_README, "w") as f:
         f.write(output)

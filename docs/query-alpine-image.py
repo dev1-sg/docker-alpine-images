@@ -39,6 +39,7 @@ def parse_key_value_output(output):
     return result
 
 def main():
+    print(now.strftime("%c"), now.tzname(), locale.getlocale())
     now = get_now()
     client = docker.from_env()
     image_name = IMAGE_URI
@@ -73,8 +74,7 @@ def main():
         "pkg_local": pkg_local,
     }
 
-    updated_time = now.strftime("%c") + " " + (now.tzname() or "")
-    output = template.render(context=context, updated_at=updated_time)
+    output = template.render(context=context, updated_at=now)
 
     print(output)
 
