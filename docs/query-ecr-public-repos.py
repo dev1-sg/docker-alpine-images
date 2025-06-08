@@ -57,7 +57,7 @@ def main():
     system_tz = get_localzone_name()
     now_local = datetime.now(ZoneInfo(system_tz)).strftime("%Y-%m-%d %H:%M %Z")
 
-    template = Template(load_template(DOCS_TEMPLATE).strip())
+    template = Template(load_template(DOCS_TEMPLATE), trim_blocks=True, lstrip_blocks=True)
     client = get_ecr_client()
 
     repos = sorted(get_repositories(client, prefix=REGISTRY_GROUP + "/"), key=lambda r: r["repositoryName"])
