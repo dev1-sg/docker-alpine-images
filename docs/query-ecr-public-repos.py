@@ -2,7 +2,7 @@ import locale
 from datetime import datetime
 
 now = datetime.now().astimezone()
-print(now.strftime("%c"), locale.getlocale(), now.tzname())
+print(now.strftime("%c"), now.tzname(), locale.getlocale())
 
 import boto3
 from botocore.config import Config
@@ -57,8 +57,6 @@ def get_latest_tag_and_size(client, repo_name):
         return "N/A", 0
 
 def main():
-    now_local = now.strftime("%c"), locale.getlocale(), now.tzname()
-
     template = Template(load_template(INPUT_TEMPLATE), trim_blocks=True, lstrip_blocks=True)
     client = get_ecr_client()
 
@@ -77,7 +75,7 @@ def main():
             "size": f"{size / (1024 * 1024):.2f} MB" if size else "N/A",
         })
 
-    output = template.render(items=items, updated_at=now_local)
+    output = template.render(items=items, updated_at=now)
     print(output)
     with open(OUTPUT_README, "w") as f:
         f.write(output)
