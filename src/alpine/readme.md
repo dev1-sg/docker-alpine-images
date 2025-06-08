@@ -1,6 +1,4 @@
-## Image Metadata
-
-### Operating System
+## Operating System
 
 **Image**: public.ecr.aws/dev1-sg/base/alpine:latest
 
@@ -10,11 +8,11 @@
 
 **os_version**: 3.21.3
 
-### Environment Variables
+## Environment Variables
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=8da43e62066f
+HOSTNAME=0a1d614b148f
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -22,7 +20,7 @@ LC_ALL=en_US.UTF-8
 HOME=/root
 ```
 
-### System Packages
+## System Packages
 
 ```bash
 alpine-baselayout
@@ -42,8 +40,12 @@ ssl_client
 zlib
 ```
 
-### Local Packages
+## Local Packages
 
 ```bash
 total 0
 ```
+
+---
+
+last_updated: ('Sun Jun  8 13:17:48 2025', '+08')

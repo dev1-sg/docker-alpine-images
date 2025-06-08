@@ -1,15 +1,15 @@
 import locale
 from datetime import datetime
+
+now = datetime.now().astimezone()
+print(now.strftime("%c"), now.tzname(), locale.getlocale())
+
 import docker
 from jinja2 import Template
 
 INPUT_TEMPLATE = "meta_template.j2"
 OUTPUT_README = "../src/alpine/readme.md"
 IMAGE_URI = "public.ecr.aws/dev1-sg/base/alpine:latest"
-
-def get_now():
-    now = datetime.now().astimezone()
-    return now
 
 def pull_image(client, image_name):
     print(f"Pulling image: {image_name}")
@@ -39,8 +39,8 @@ def parse_key_value_output(output):
     return result
 
 def main():
-    print(now.strftime("%c"), now.tzname(), locale.getlocale())
-    now = get_now()
+    updated_time = now.strftime("%c"), now.tzname()
+
     client = docker.from_env()
     image_name = IMAGE_URI
 
@@ -74,7 +74,7 @@ def main():
         "pkg_local": pkg_local,
     }
 
-    output = template.render(context=context, updated_at=now)
+    output = template.render(context=context, updated_at=updated_time)
 
     print(output)
 
