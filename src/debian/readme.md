@@ -1,3 +1,28 @@
+## Operating System
+
+**Image**: public.ecr.aws/dev1-sg/base/debian:latest
+
+**os_name**: Debian GNU/Linux
+
+**os_id**: debian
+
+**os_version**: 12
+
+## Environment Variables
+
+```bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=ec0da476d7cb
+TZ=Asia/Singapore
+LANG=en_US.UTF-8
+LANGUAGE=en_US:en
+LC_ALL=en_US.UTF-8
+HOME=/root
+```
+
+## System Packages
+
+```bash
 Listing...
 adduser/now 3.134 all [installed,local]
 apt/now 2.6.1 amd64 [installed,local]
@@ -92,3 +117,14 @@ usr-is-merged/now 37~deb12u1 all [installed,local]
 util-linux-extra/now 2.38.1-5+deb12u3 amd64 [installed,local]
 util-linux/now 2.38.1-5+deb12u3 amd64 [installed,local]
 zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
+```
+
+## Local Packages
+
+```bash
+total 0
+```
+
+---
+
+last_updated: ('Sun Jun  8 13:26:21 2025', '+08')
