@@ -11,9 +11,9 @@ readme Docs are updated daily. Please check the gallery for the latest updates.
 
 | # | Repository Name | Group | URI | Latest Tag | Size |
 |---|-----------------|-------|-----|------------|------|
-{% for item in items %}
+{% for item in items -%}
 | {{ item.number }} | [{{ item.name }}](https://gallery.ecr.aws/dev1-sg/{{ item.name }}) | {{ item.group }} | {{ item.uri }} | {{ item.latest_tag }} | {{ item.size }} |
-{% endfor %}
+{%- endfor %}
 
 ---
 
