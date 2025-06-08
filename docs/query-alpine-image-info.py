@@ -1,9 +1,9 @@
+import docker
+from pathlib import Path
+
 REGISTRY_FULL_URI = "public.ecr.aws/dev1-sg/base/alpine:latest"
 OUTPUT_DIR = Path("../src/alpine")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-import docker
-from pathlib import Path
 
 client = docker.from_env()
 image_name = REGISTRY_FULL_URI
