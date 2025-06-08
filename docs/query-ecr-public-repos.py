@@ -34,18 +34,24 @@ def get_repositories(client, prefix=None):
                 repos.append(repo)
     return repos
 
-def get_latest_tags(client, repo_name):
+def get_latest_tag_and_size(client, repo_name):
     try:
         images = client.describe_images(repositoryName=repo_name).get("imageDetails", [])
-        tags = [(tag, img.get("imagePushedAt"))
-                for img in images for tag in img.get("imageTags", []) if tag.lower() != "latest"]
-        tags.sort(key=lambda x: x[1], reverse=True)
+        tagged_images = [
+            (tag, img.get("imagePushedAt"), img.get("imageSizeInBytes", 0))
+            for img in images for tag in img.get("imageTags", [])
+            if tag.lower() != "latest"
+        ]
+        tagged_images.sort(key=lambda x: x[1], reverse=True)
         seen = set()
-        unique_tags = [t for t, _ in tags if not (t in seen or seen.add(t))]
-        return unique_tags or ["N/A"]
+        for tag, pushed_at, size in tagged_images:
+            if tag not in seen:
+                seen.add(tag)
+                return tag, size
+        return "N/A", 0
     except Exception as e:
         print(f"[Warning] Failed to fetch tags for '{repo_name}': {e}")
-        return ["N/A"]
+        return "N/A", 0
 
 def main():
     system_tz = get_localzone_name()
@@ -59,12 +65,14 @@ def main():
     items = []
     for i, repo in enumerate(repos, 1):
         name = repo["repositoryName"]
+        latest_tag, size = get_latest_tag_and_size(client, name)
         items.append({
             "number": i,
             "name": name,
             "group": name.split("/")[0] if "/" in name else "-",
             "uri": f"{REGISTRY_URI}/{name}",
-            "latest_tag": get_latest_tags(client, name)[0],
+            "latest_tag": latest_tag,
+            "size": f"{size / (1024 * 1024):.2f} MB" if size else "N/A",
         })
 
     output = template.render(items=items, updated_at=now_local)

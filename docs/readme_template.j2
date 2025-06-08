@@ -9,11 +9,9 @@ readme Docs are updated daily. Please check the gallery for the latest updates.
 [https://gallery.ecr.aws/dev1-sg/](https://gallery.ecr.aws/dev1-sg/)
 
 
-| # | Repository Name | Group | URI | Latest Tag |
-|---|-----------------|-------|-----|------------|
-{% for item in items -%}
-| {{ item.number }} | [{{ item.name }}](https://gallery.ecr.aws/dev1-sg/{{ item.name }}) | {{ item.group }} | {{ item.uri }} | {{ item.latest_tag }} |
-{% endfor %}
+| # | Repository Name | Group | URI | Latest Tag | Size |
+|---|-----------------|-------|-----|------------|------|
+| {{ item.number }} | [{{ item.name }}](https://gallery.ecr.aws/dev1-sg/{{ item.name }}) | {{ item.group }} | {{ item.uri }} | {{ item.latest_tag }} | {{ item.size }} |
 
 ---
 
