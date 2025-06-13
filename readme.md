@@ -17,8 +17,9 @@ readme Docs are updated daily. Please check the regsitry gallery for the latest 
 | 4 | [base/golang](https://gallery.ecr.aws/dev1-sg/base/golang) | base | public.ecr.aws/dev1-sg/base/golang | 1.24.3 | 359.19 MB |
 | 5 | [base/node](https://gallery.ecr.aws/dev1-sg/base/node) | base | public.ecr.aws/dev1-sg/base/node | 24.0.2 | 460.15 MB |
 | 6 | [base/python](https://gallery.ecr.aws/dev1-sg/base/python) | base | public.ecr.aws/dev1-sg/base/python | 3.13.5 | 432.71 MB |
-| 7 | [base/ubuntu](https://gallery.ecr.aws/dev1-sg/base/ubuntu) | base | public.ecr.aws/dev1-sg/base/ubuntu | noble | 94.55 MB |
+| 7 | [base/test](https://gallery.ecr.aws/dev1-sg/base/test) | base | public.ecr.aws/dev1-sg/base/test | 1.0.0 | 3.94 MB |
+| 8 | [base/ubuntu](https://gallery.ecr.aws/dev1-sg/base/ubuntu) | base | public.ecr.aws/dev1-sg/base/ubuntu | noble | 94.55 MB |
 
 ---
 
-last_updated: ('Fri Jun 13 18:06:07 2025', '+08')
+last_updated: ('Sat Jun 14 00:14:54 2025', '+08')

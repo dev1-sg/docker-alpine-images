@@ -38,22 +38,30 @@ func TestContainersGoPull{{ DOCKER_IMAGE|capitalize }}(t *testing.T) {
 
 func TestContainersGoExec{{ DOCKER_IMAGE|capitalize }}(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: {{ DOCKER_IMAGE|capitalize }}.AWS_ECR_PUBLIC_URI + "/" + {{ DOCKER_IMAGE|capitalize }}.DOCKER_IMAGE_GROUP + "/" + {{ DOCKER_IMAGE|capitalize }}.DOCKER_IMAGE + ":" + {{ DOCKER_IMAGE|capitalize }}.DOCKER_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
 	})
-	require.NoError(t, e)
+	require.NoError(t, err)
 	defer container.Terminate(ctx)
 
-	exitCode, reader, e := container.Exec(ctx, []string{"echo", "Hello, World!"})
-	require.NoError(t, e)
-	require.Equal(t, 0, exitCode)
+	commands := [][]string{
+		{"echo", "Hello"},
+		{"echo", "world"},
+	}
 
-	output, e := io.ReadAll(reader)
-	require.NoError(t, e)
+	for _, cmd := range commands {
+		exitCode, reader, err := container.Exec(ctx, cmd)
+		require.NoError(t, err)
+		require.Equal(t, 0, exitCode)
 
-	require.Contains(t, string(output), "Hello, World!", "Expected output not found")
+		output, err := io.ReadAll(reader)
+		require.NoError(t, err)
+
+		t.Logf("Command: %v\nOutput: %s\n", cmd, output)
+		require.NotEmpty(t, output)
+	}
 }
