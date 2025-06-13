@@ -49,10 +49,10 @@ jobs:
         with:
           registry-type: public
 
-      - name: Extract Version from dockerfile
+      - name: Extract Version from Dockerfile
         id: extract_version
         run: |
-          DOCKER_IMAGE_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/{{ '${{ env.DOCKER_IMAGE }}' }}/dockerfile)
+          DOCKER_IMAGE_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/{{ '${{ env.DOCKER_IMAGE }}' }}/Dockerfile)
           echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG#v}" >> $GITHUB_ENV
           echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG#v}"
 

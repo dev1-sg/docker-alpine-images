@@ -52,7 +52,7 @@ jobs:
       - name: Extract Version from dockerfile
         id: extract_version
         run: |
-          DOCKER_IMAGE_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/${{ env.DOCKER_IMAGE }}/dockerfile)
+          DOCKER_IMAGE_TAG=$(cat ./src/${{ env.DOCKER_IMAGE }}/version)
           echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG#v}" >> $GITHUB_ENV
           echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG#v}"
 
