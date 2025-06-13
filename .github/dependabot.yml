@@ -17,6 +17,7 @@ updates:
       - /src/golang
       - /src/node
       - /src/python
+      - /src/test
       - /src/ubuntu
     schedule:
       interval: daily
