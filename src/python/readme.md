@@ -12,10 +12,10 @@
 
 ```bash
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=df7fdc9c6d47
+HOSTNAME=9e17f8affc47
 GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305
-PYTHON_VERSION=3.13.4
-PYTHON_SHA256=27b15a797562a2971dce3ffe31bb216042ce0b995b39d768cf15f784cc757365
+PYTHON_VERSION=3.13.5
+PYTHON_SHA256=93e583f243454e6e9e4588ca2c2662206ad961659863277afcdb96801647d640
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -350,7 +350,7 @@ libssl3/now 3.0.16-1~deb12u1 amd64 [installed,local]
 libstdc++-12-dev/now 12.2.0-14+deb12u1 amd64 [installed,local]
 libstdc++6/now 12.2.0-14+deb12u1 amd64 [installed,local]
 libsvn1/now 1.14.2-4+deb12u1 amd64 [installed,local]
-libsystemd0/now 252.36-1~deb12u1 amd64 [installed,local]
+libsystemd0/now 252.38-1~deb12u1 amd64 [installed,local]
 libtasn1-6/now 4.19.0-2+deb12u1 amd64 [installed,local]
 libtcl8.6/now 8.6.13+dfsg-2 amd64 [installed,local]
 libthai-data/now 0.1.29-1 all [installed,local]
@@ -366,7 +366,7 @@ libtk8.6/now 8.6.13-2 amd64 [installed,local]
 libtool/now 2.4.7-7~deb12u1 all [installed,local]
 libtsan2/now 12.2.0-14+deb12u1 amd64 [installed,local]
 libubsan1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libudev1/now 252.36-1~deb12u1 amd64 [installed,local]
+libudev1/now 252.38-1~deb12u1 amd64 [installed,local]
 libunistring2/now 1.0-2 amd64 [installed,local]
 libutf8proc2/now 2.8.0-1 amd64 [installed,local]
 libuuid1/now 2.38.1-5+deb12u3 amd64 [installed,local]
@@ -410,7 +410,7 @@ libyaml-0-2/now 0.2.5-1 amd64 [installed,local]
 libyaml-dev/now 0.2.5-1 amd64 [installed,local]
 libzstd-dev/now 1.5.4+dfsg2-5 amd64 [installed,local]
 libzstd1/now 1.5.4+dfsg2-5 amd64 [installed,local]
-linux-libc-dev/now 6.1.137-1 amd64 [installed,local]
+linux-libc-dev/now 6.1.140-1 amd64 [installed,local]
 locales-all/now 2.36-9+deb12u10 amd64 [installed,local]
 login/now 1:4.13+dfsg1-1+deb12u1 amd64 [installed,local]
 logsave/now 1.47.0-2 amd64 [installed,local]
@@ -482,4 +482,4 @@ zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 
 ---
 
-last_updated: ('Sun Jun  8 16:22:46 2025', '+08')
+last_updated: ('Fri Jun 13 13:09:40 2025', '+08')
