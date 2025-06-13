@@ -8,8 +8,8 @@ import docker
 from jinja2 import Template
 
 INPUT_TEMPLATE = "../templates/meta_template.j2"
-OUTPUT_README = "../src/dev/readme.md"
-IMAGE_URI = "public.ecr.aws/dev1-sg/base/dev:latest"
+OUTPUT_README = "../src/test/readme.md"
+IMAGE_URI = "public.ecr.aws/dev1-sg/base/test:latest"
 
 def pull_image(client, image_name):
     print(f"Pulling image: {image_name}")
