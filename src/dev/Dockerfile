@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM docker.io/python:3.13.4-bookworm AS python
+FROM docker.io/python:3.13.5-bookworm AS python
 FROM docker.io/node:24.2.0-bookworm AS node
 
 FROM docker.io/debian:bookworm AS base
