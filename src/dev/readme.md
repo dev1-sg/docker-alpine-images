@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=5a2c1e56ca9b
+HOSTNAME=f40c95485635
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -57,7 +57,7 @@ base-files/now 12.4+deb12u11 amd64 [installed,local]
 base-passwd/now 3.6.1 amd64 [installed,local]
 bash/now 5.2.15-2+b8 amd64 [installed,local]
 bsdutils/now 1:2.38.1-5+deb12u3 amd64 [installed,local]
-ca-certificates/now 20230311 all [installed,local]
+ca-certificates/now 20230311+deb12u1 all [installed,local]
 coreutils/now 9.1-1 amd64 [installed,local]
 dash/now 0.5.12-2 amd64 [installed,local]
 debconf/now 1.5.82 all [installed,local]
@@ -149,4 +149,4 @@ zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
 
 ---
 
-last_updated: ('Fri Jun 13 18:04:43 2025', '+08')
+last_updated: ('Sat Jun 14 19:05:46 2025', '+08')
