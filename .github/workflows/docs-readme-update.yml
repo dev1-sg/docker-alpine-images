@@ -45,10 +45,8 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Run Python script
-        run: python3 scripts/generate_image_readme.py
+        run: python3 scripts/generate_main_readme.py
 
-      - name: Run Python script
         run: python3 scripts/generate_main_readme.py
 
       - name: 'commit update'
