@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-          cache-dependency-path: docs/requirements.txt
+          cache-dependency-path: requirements.txt
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -44,11 +44,12 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - run: pip install -r requirements.txt
-        working-directory: docs
 
       - name: Run Python script
-        working-directory: docs
-        run: python3 query-ecr-public-repos.py
+        run: python3 scripts/generate_image_readme.py
+
+      - name: Run Python script
+        run: python3 scripts/generate_main_readme.py
 
       - name: 'commit update'
         env:

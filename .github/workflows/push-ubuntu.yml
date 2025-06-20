@@ -52,9 +52,9 @@ jobs:
       - name: Extract Version from Dockerfile
         id: extract_version
         run: |
-          DOCKER_IMAGE_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/${{env.DOCKER_IMAGE}}/Dockerfile)
-          echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG#v}" >> $GITHUB_ENV
-          echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG#v}"
+          AWS_ECR_PUBLIC_IMAGE_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/${{env.DOCKER_IMAGE}}/Dockerfile)
+          echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}" >> $GITHUB_ENV
+          echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}"
 
       - name: Create AWS ECR Public Repository
         run: |

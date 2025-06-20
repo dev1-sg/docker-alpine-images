@@ -1,19 +1,19 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/golang:latest
+**Image**: public.ecr.aws/dev1-sg/base/golang
 
-**os_name**: Debian GNU/Linux
+**os_name**: "Alpine Linux"
 
-**os_version_id**: 12
+**os_version_id**: 3.21.3
 
-**os_id**: debian
+**os_id**: alpine
 
 ## Environment Variables
 
 ```bash
-PATH=/go/bin:/usr/local/go/bin:/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=eed80fe9c96a
-GOLANG_VERSION=1.24.3
+PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=ebd374753f9b
+GOLANG_VERSION=1.24.4
 GOTOOLCHAIN=local
 GOPATH=/go
 TZ=Asia/Singapore
@@ -26,223 +26,108 @@ HOME=/root
 ## Local Packages
 
 ```bash
-go
-gofmt
 ```
 
 ## System Packages
 
 ```bash
-adduser/now 3.134 all [installed,local]
-apt/now 2.6.1 amd64 [installed,local]
-base-files/now 12.4+deb12u11 amd64 [installed,local]
-base-passwd/now 3.6.1 amd64 [installed,local]
-bash/now 5.2.15-2+b8 amd64 [installed,local]
-binutils-common/now 2.40-2 amd64 [installed,local]
-binutils-x86-64-linux-gnu/now 2.40-2 amd64 [installed,local]
-binutils/now 2.40-2 amd64 [installed,local]
-bsdutils/now 1:2.38.1-5+deb12u3 amd64 [installed,local]
-ca-certificates/now 20230311 all [installed,local]
-coreutils/now 9.1-1 amd64 [installed,local]
-cpp-12/now 12.2.0-14+deb12u1 amd64 [installed,local]
-cpp/now 4:12.2.0-3 amd64 [installed,local]
-curl/now 7.88.1-10+deb12u12 amd64 [installed,local]
-dash/now 0.5.12-2 amd64 [installed,local]
-debconf/now 1.5.82 all [installed,local]
-debian-archive-keyring/now 2023.3+deb12u2 all [installed,local]
-debianutils/now 5.7-0.5~deb12u1 amd64 [installed,local]
-diffutils/now 1:3.8-4 amd64 [installed,local]
-dirmngr/now 2.2.40-1.1 amd64 [installed,local]
-dpkg/now 1.21.22 amd64 [installed,local]
-e2fsprogs/now 1.47.0-2 amd64 [installed,local]
-findutils/now 4.9.0-4 amd64 [installed,local]
-g++-12/now 12.2.0-14+deb12u1 amd64 [installed,local]
-g++/now 4:12.2.0-3 amd64 [installed,local]
-gcc-12-base/now 12.2.0-14+deb12u1 amd64 [installed,local]
-gcc-12/now 12.2.0-14+deb12u1 amd64 [installed,local]
-gcc/now 4:12.2.0-3 amd64 [installed,local]
-git-man/now 1:2.39.5-0+deb12u2 all [installed,local]
-git/now 1:2.39.5-0+deb12u2 amd64 [installed,local]
-gnupg-l10n/now 2.2.40-1.1 all [installed,local]
-gnupg-utils/now 2.2.40-1.1 amd64 [installed,local]
-gnupg/now 2.2.40-1.1 all [installed,local]
-gpg-agent/now 2.2.40-1.1 amd64 [installed,local]
-gpg-wks-client/now 2.2.40-1.1 amd64 [installed,local]
-gpg-wks-server/now 2.2.40-1.1 amd64 [installed,local]
-gpg/now 2.2.40-1.1 amd64 [installed,local]
-gpgconf/now 2.2.40-1.1 amd64 [installed,local]
-gpgsm/now 2.2.40-1.1 amd64 [installed,local]
-gpgv/now 2.2.40-1.1 amd64 [installed,local]
-grep/now 3.8-5 amd64 [installed,local]
-gzip/now 1.12-1 amd64 [installed,local]
-hostname/now 3.23+nmu1 amd64 [installed,local]
-init-system-helpers/now 1.65.2 all [installed,local]
-libacl1/now 2.3.1-3 amd64 [installed,local]
-libapr1/now 1.7.2-3+deb12u1 amd64 [installed,local]
-libaprutil1/now 1.6.3-1 amd64 [installed,local]
-libapt-pkg6.0/now 2.6.1 amd64 [installed,local]
-libasan8/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libassuan0/now 2.5.5-5 amd64 [installed,local]
-libatomic1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libattr1/now 1:2.5.1-4 amd64 [installed,local]
-libaudit-common/now 1:3.0.9-1 all [installed,local]
-libaudit1/now 1:3.0.9-1 amd64 [installed,local]
-libbinutils/now 2.40-2 amd64 [installed,local]
-libblkid1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libbrotli1/now 1.0.9-2+b6 amd64 [installed,local]
-libbsd0/now 0.11.7-2 amd64 [installed,local]
-libbz2-1.0/now 1.0.8-5+b1 amd64 [installed,local]
-libc-bin/now 2.36-9+deb12u10 amd64 [installed,local]
-libc-dev-bin/now 2.36-9+deb12u10 amd64 [installed,local]
-libc-l10n/now 2.36-9+deb12u10 all [installed,local]
-libc6-dev/now 2.36-9+deb12u10 amd64 [installed,local]
-libc6/now 2.36-9+deb12u10 amd64 [installed,local]
-libcap-ng0/now 0.8.3-1+b3 amd64 [installed,local]
-libcap2/now 1:2.66-4+deb12u1 amd64 [installed,local]
-libcbor0.8/now 0.8.0-2+b1 amd64 [installed,local]
-libcc1-0/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libcom-err2/now 1.47.0-2 amd64 [installed,local]
-libcrypt-dev/now 1:4.4.33-2 amd64 [installed,local]
-libcrypt1/now 1:4.4.33-2 amd64 [installed,local]
-libctf-nobfd0/now 2.40-2 amd64 [installed,local]
-libctf0/now 2.40-2 amd64 [installed,local]
-libcurl3-gnutls/now 7.88.1-10+deb12u12 amd64 [installed,local]
-libcurl4/now 7.88.1-10+deb12u12 amd64 [installed,local]
-libdb5.3/now 5.3.28+dfsg2-1 amd64 [installed,local]
-libdebconfclient0/now 0.270 amd64 [installed,local]
-libedit2/now 3.1-20221030-2 amd64 [installed,local]
-liberror-perl/now 0.17029-2 all [installed,local]
-libexpat1/now 2.5.0-1+deb12u1 amd64 [installed,local]
-libext2fs2/now 1.47.0-2 amd64 [installed,local]
-libffi8/now 3.4.4-1 amd64 [installed,local]
-libfido2-1/now 1.12.0-2+b1 amd64 [installed,local]
-libgcc-12-dev/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libgcc-s1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libgcrypt20/now 1.10.1-3 amd64 [installed,local]
-libgdbm-compat4/now 1.23-3 amd64 [installed,local]
-libgdbm6/now 1.23-3 amd64 [installed,local]
-libgmp10/now 2:6.2.1+dfsg1-1.1 amd64 [installed,local]
-libgnutls30/now 3.7.9-2+deb12u4 amd64 [installed,local]
-libgomp1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libgpg-error0/now 1.46-1 amd64 [installed,local]
-libgprofng0/now 2.40-2 amd64 [installed,local]
-libgssapi-krb5-2/now 1.20.1-2+deb12u3 amd64 [installed,local]
-libhogweed6/now 3.8.1-2 amd64 [installed,local]
-libidn2-0/now 2.3.3-1+b1 amd64 [installed,local]
-libisl23/now 0.25-1.1 amd64 [installed,local]
-libitm1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libjansson4/now 2.14-2 amd64 [installed,local]
-libk5crypto3/now 1.20.1-2+deb12u3 amd64 [installed,local]
-libkeyutils1/now 1.6.3-2 amd64 [installed,local]
-libkrb5-3/now 1.20.1-2+deb12u3 amd64 [installed,local]
-libkrb5support0/now 1.20.1-2+deb12u3 amd64 [installed,local]
-libksba8/now 1.6.3-2 amd64 [installed,local]
-libldap-2.5-0/now 2.5.13+dfsg-5 amd64 [installed,local]
-liblsan0/now 12.2.0-14+deb12u1 amd64 [installed,local]
-liblz4-1/now 1.9.4-1 amd64 [installed,local]
-liblzma5/now 5.4.1-1 amd64 [installed,local]
-libmd0/now 1.0.4-2 amd64 [installed,local]
-libmount1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libmpc3/now 1.3.1-1 amd64 [installed,local]
-libmpfr6/now 4.2.0-1 amd64 [installed,local]
-libncursesw6/now 6.4-4 amd64 [installed,local]
-libnettle8/now 3.8.1-2 amd64 [installed,local]
-libnghttp2-14/now 1.52.0-1+deb12u2 amd64 [installed,local]
-libnpth0/now 1.6-3 amd64 [installed,local]
-libnsl-dev/now 1.3.0-2 amd64 [installed,local]
-libnsl2/now 1.3.0-2 amd64 [installed,local]
-libp11-kit0/now 0.24.1-2 amd64 [installed,local]
-libpam-modules-bin/now 1.5.2-6+deb12u1 amd64 [installed,local]
-libpam-modules/now 1.5.2-6+deb12u1 amd64 [installed,local]
-libpam-runtime/now 1.5.2-6+deb12u1 all [installed,local]
-libpam0g/now 1.5.2-6+deb12u1 amd64 [installed,local]
-libpcre2-8-0/now 10.42-1 amd64 [installed,local]
-libperl5.36/now 5.36.0-7+deb12u2 amd64 [installed,local]
-libpkgconf3/now 1.8.1-1 amd64 [installed,local]
-libproc2-0/now 2:4.0.2-3 amd64 [installed,local]
-libpsl5/now 0.21.2-1 amd64 [installed,local]
-libpython3-stdlib/now 3.11.2-1+b1 amd64 [installed,local]
-libpython3.11-minimal/now 3.11.2-6+deb12u6 amd64 [installed,local]
-libpython3.11-stdlib/now 3.11.2-6+deb12u6 amd64 [installed,local]
-libquadmath0/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libreadline8/now 8.2-1.3 amd64 [installed,local]
-librtmp1/now 2.4+20151223.gitfa8646d.1-2+b2 amd64 [installed,local]
-libsasl2-2/now 2.1.28+dfsg-10 amd64 [installed,local]
-libsasl2-modules-db/now 2.1.28+dfsg-10 amd64 [installed,local]
-libseccomp2/now 2.5.4-1+deb12u1 amd64 [installed,local]
-libselinux1/now 3.4-1+b6 amd64 [installed,local]
-libsemanage-common/now 3.4-1 all [installed,local]
-libsemanage2/now 3.4-1+b5 amd64 [installed,local]
-libsepol2/now 3.4-2.1 amd64 [installed,local]
-libserf-1-1/now 1.3.9-11 amd64 [installed,local]
-libsmartcols1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libsqlite3-0/now 3.40.1-2+deb12u1 amd64 [installed,local]
-libss2/now 1.47.0-2 amd64 [installed,local]
-libssh2-1/now 1.10.0-3+b1 amd64 [installed,local]
-libssl3/now 3.0.16-1~deb12u1 amd64 [installed,local]
-libstdc++-12-dev/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libstdc++6/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libsvn1/now 1.14.2-4+deb12u1 amd64 [installed,local]
-libsystemd0/now 252.36-1~deb12u1 amd64 [installed,local]
-libtasn1-6/now 4.19.0-2+deb12u1 amd64 [installed,local]
-libtinfo6/now 6.4-4 amd64 [installed,local]
-libtirpc-common/now 1.3.3+ds-1 all [installed,local]
-libtirpc-dev/now 1.3.3+ds-1 amd64 [installed,local]
-libtirpc3/now 1.3.3+ds-1 amd64 [installed,local]
-libtsan2/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libubsan1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libudev1/now 252.36-1~deb12u1 amd64 [installed,local]
-libunistring2/now 1.0-2 amd64 [installed,local]
-libutf8proc2/now 2.8.0-1 amd64 [installed,local]
-libuuid1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libxxhash0/now 0.8.1-1 amd64 [installed,local]
-libzstd1/now 1.5.4+dfsg2-5 amd64 [installed,local]
-linux-libc-dev/now 6.1.137-1 amd64 [installed,local]
-locales-all/now 2.36-9+deb12u10 amd64 [installed,local]
-login/now 1:4.13+dfsg1-1+deb12u1 amd64 [installed,local]
-logsave/now 1.47.0-2 amd64 [installed,local]
-make/now 4.3-4.1 amd64 [installed,local]
-mawk/now 1.3.4.20200120-3.1 amd64 [installed,local]
-media-types/now 10.0.0 all [installed,local]
-mercurial-common/now 6.3.2-1+deb12u1 all [installed,local]
-mercurial/now 6.3.2-1+deb12u1 amd64 [installed,local]
-mount/now 2.38.1-5+deb12u3 amd64 [installed,local]
-ncurses-base/now 6.4-4 all [installed,local]
-ncurses-bin/now 6.4-4 amd64 [installed,local]
-netbase/now 6.4 all [installed,local]
-openssh-client/now 1:9.2p1-2+deb12u6 amd64 [installed,local]
-openssl/now 3.0.16-1~deb12u1 amd64 [installed,local]
-passwd/now 1:4.13+dfsg1-1+deb12u1 amd64 [installed,local]
-perl-base/now 5.36.0-7+deb12u2 amd64 [installed,local]
-perl-modules-5.36/now 5.36.0-7+deb12u2 all [installed,local]
-perl/now 5.36.0-7+deb12u2 amd64 [installed,local]
-pinentry-curses/now 1.2.1-1 amd64 [installed,local]
-pkg-config/now 1.8.1-1 amd64 [installed,local]
-pkgconf-bin/now 1.8.1-1 amd64 [installed,local]
-pkgconf/now 1.8.1-1 amd64 [installed,local]
-procps/now 2:4.0.2-3 amd64 [installed,local]
-python3-minimal/now 3.11.2-1+b1 amd64 [installed,local]
-python3.11-minimal/now 3.11.2-6+deb12u6 amd64 [installed,local]
-python3.11/now 3.11.2-6+deb12u6 amd64 [installed,local]
-python3/now 3.11.2-1+b1 amd64 [installed,local]
-readline-common/now 8.2-1.3 all [installed,local]
-rpcsvc-proto/now 1.4.3-1 amd64 [installed,local]
-sed/now 4.9-1 amd64 [installed,local]
-sensible-utils/now 0.0.17+nmu1 all [installed,local]
-sq/now 0.27.0-2+b1 amd64 [installed,local]
-subversion/now 1.14.2-4+deb12u1 amd64 [installed,local]
-sysvinit-utils/now 3.06-4 amd64 [installed,local]
-tar/now 1.34+dfsg-1.2+deb12u1 amd64 [installed,local]
-tzdata/now 2025b-0+deb12u1 all [installed,local]
-ucf/now 3.0043+nmu1+deb12u1 all [installed,local]
-usr-is-merged/now 37~deb12u1 all [installed,local]
-util-linux-extra/now 2.38.1-5+deb12u3 amd64 [installed,local]
-util-linux/now 2.38.1-5+deb12u3 amd64 [installed,local]
-wget/now 1.21.3-1+deb12u1 amd64 [installed,local]
-zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
+alpine-baselayout
+alpine-baselayout-data
+alpine-keys
+alpine-release
+apk-tools
+aws-c-auth
+aws-c-cal
+aws-c-common
+aws-c-compression
+aws-c-event-stream
+aws-c-http
+aws-c-io
+aws-c-mqtt
+aws-c-s3
+aws-c-sdkutils
+aws-checksums
+aws-cli
+aws-cli-pyc
+bash
+brotli-libs
+busybox
+busybox-binsh
+c-ares
+ca-certificates
+ca-certificates-bundle
+curl
+gdbm
+git
+git-init-template
+jq
+libbz2
+libcrypto3
+libcurl
+libexpat
+libffi
+libgcc
+libidn2
+libncursesw
+libpanelw
+libpsl
+libssl3
+libstdc++
+libunistring
+mpdecimal
+musl
+musl-utils
+ncurses-terminfo-base
+nghttp2-libs
+oniguruma
+pcre2
+py3-awscrt
+py3-awscrt-pyc
+py3-certifi
+py3-certifi-pyc
+py3-cffi
+py3-cffi-pyc
+py3-colorama
+py3-colorama-pyc
+py3-cparser
+py3-cparser-pyc
+py3-cryptography
+py3-cryptography-pyc
+py3-dateutil
+py3-dateutil-pyc
+py3-distro
+py3-distro-pyc
+py3-docutils
+py3-docutils-pyc
+py3-jmespath
+py3-jmespath-pyc
+py3-prompt_toolkit
+py3-prompt_toolkit-pyc
+py3-ruamel.yaml
+py3-ruamel.yaml-pyc
+py3-ruamel.yaml.clib
+py3-six
+py3-six-pyc
+py3-urllib3
+py3-urllib3-pyc
+py3-wcwidth
+py3-wcwidth-pyc
+pyc
+python3
+python3-pyc
+python3-pycache-pyc0
+readline
+s2n-tls
+scanelf
+sqlite-libs
+ssl_client
+sudo
+xz-libs
+zlib
+zstd-libs
 ```
 
 
 ---
 
-last_updated: ('Sun Jun  8 16:09:52 2025', '+08')
+last_updated: Sat Jun 21 02:48:40 2025

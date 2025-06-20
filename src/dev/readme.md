@@ -1,18 +1,18 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/dev:latest
+**Image**: public.ecr.aws/dev1-sg/base/dev
 
-**os_name**: Debian GNU/Linux
+**os_name**: "Alpine Linux"
 
-**os_version_id**: 12
+**os_version_id**: 3.22.0
 
-**os_id**: debian
+**os_id**: alpine
 
 ## Environment Variables
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=f40c95485635
+HOSTNAME=0a3a5ee6be8e
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -23,130 +23,30 @@ HOME=/root
 ## Local Packages
 
 ```bash
-corepack
-docker-entrypoint.sh
-idle
-idle3
-idle3.13
-node
-nodejs
-npm
-npx
-pip
-pip3
-pip3.13
-pydoc
-pydoc3
-pydoc3.13
-python
-python3
-python3.13
-python3.13-config
-python3-config
-python-config
-yarn
-yarnpkg
 ```
 
 ## System Packages
 
 ```bash
-adduser/now 3.134 all [installed,local]
-apt/now 2.6.1 amd64 [installed,local]
-base-files/now 12.4+deb12u11 amd64 [installed,local]
-base-passwd/now 3.6.1 amd64 [installed,local]
-bash/now 5.2.15-2+b8 amd64 [installed,local]
-bsdutils/now 1:2.38.1-5+deb12u3 amd64 [installed,local]
-ca-certificates/now 20230311+deb12u1 all [installed,local]
-coreutils/now 9.1-1 amd64 [installed,local]
-dash/now 0.5.12-2 amd64 [installed,local]
-debconf/now 1.5.82 all [installed,local]
-debian-archive-keyring/now 2023.3+deb12u2 all [installed,local]
-debianutils/now 5.7-0.5~deb12u1 amd64 [installed,local]
-diffutils/now 1:3.8-4 amd64 [installed,local]
-dpkg/now 1.21.22 amd64 [installed,local]
-e2fsprogs/now 1.47.0-2 amd64 [installed,local]
-findutils/now 4.9.0-4 amd64 [installed,local]
-gcc-12-base/now 12.2.0-14+deb12u1 amd64 [installed,local]
-gpgv/now 2.2.40-1.1 amd64 [installed,local]
-grep/now 3.8-5 amd64 [installed,local]
-gzip/now 1.12-1 amd64 [installed,local]
-hostname/now 3.23+nmu1 amd64 [installed,local]
-init-system-helpers/now 1.65.2 all [installed,local]
-libacl1/now 2.3.1-3 amd64 [installed,local]
-libapt-pkg6.0/now 2.6.1 amd64 [installed,local]
-libattr1/now 1:2.5.1-4 amd64 [installed,local]
-libaudit-common/now 1:3.0.9-1 all [installed,local]
-libaudit1/now 1:3.0.9-1 amd64 [installed,local]
-libblkid1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libbz2-1.0/now 1.0.8-5+b1 amd64 [installed,local]
-libc-bin/now 2.36-9+deb12u10 amd64 [installed,local]
-libc-l10n/now 2.36-9+deb12u10 all [installed,local]
-libc6/now 2.36-9+deb12u10 amd64 [installed,local]
-libcap-ng0/now 0.8.3-1+b3 amd64 [installed,local]
-libcap2/now 1:2.66-4+deb12u1 amd64 [installed,local]
-libcom-err2/now 1.47.0-2 amd64 [installed,local]
-libcrypt1/now 1:4.4.33-2 amd64 [installed,local]
-libdb5.3/now 5.3.28+dfsg2-1 amd64 [installed,local]
-libdebconfclient0/now 0.270 amd64 [installed,local]
-libext2fs2/now 1.47.0-2 amd64 [installed,local]
-libffi8/now 3.4.4-1 amd64 [installed,local]
-libgcc-s1/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libgcrypt20/now 1.10.1-3 amd64 [installed,local]
-libgmp10/now 2:6.2.1+dfsg1-1.1 amd64 [installed,local]
-libgnutls30/now 3.7.9-2+deb12u4 amd64 [installed,local]
-libgpg-error0/now 1.46-1 amd64 [installed,local]
-libhogweed6/now 3.8.1-2 amd64 [installed,local]
-libidn2-0/now 2.3.3-1+b1 amd64 [installed,local]
-liblz4-1/now 1.9.4-1 amd64 [installed,local]
-liblzma5/now 5.4.1-1 amd64 [installed,local]
-libmd0/now 1.0.4-2 amd64 [installed,local]
-libmount1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libnettle8/now 3.8.1-2 amd64 [installed,local]
-libp11-kit0/now 0.24.1-2 amd64 [installed,local]
-libpam-modules-bin/now 1.5.2-6+deb12u1 amd64 [installed,local]
-libpam-modules/now 1.5.2-6+deb12u1 amd64 [installed,local]
-libpam-runtime/now 1.5.2-6+deb12u1 all [installed,local]
-libpam0g/now 1.5.2-6+deb12u1 amd64 [installed,local]
-libpcre2-8-0/now 10.42-1 amd64 [installed,local]
-libseccomp2/now 2.5.4-1+deb12u1 amd64 [installed,local]
-libselinux1/now 3.4-1+b6 amd64 [installed,local]
-libsemanage-common/now 3.4-1 all [installed,local]
-libsemanage2/now 3.4-1+b5 amd64 [installed,local]
-libsepol2/now 3.4-2.1 amd64 [installed,local]
-libsmartcols1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libss2/now 1.47.0-2 amd64 [installed,local]
-libssl3/now 3.0.16-1~deb12u1 amd64 [installed,local]
-libstdc++6/now 12.2.0-14+deb12u1 amd64 [installed,local]
-libsystemd0/now 252.38-1~deb12u1 amd64 [installed,local]
-libtasn1-6/now 4.19.0-2+deb12u1 amd64 [installed,local]
-libtinfo6/now 6.4-4 amd64 [installed,local]
-libudev1/now 252.38-1~deb12u1 amd64 [installed,local]
-libunistring2/now 1.0-2 amd64 [installed,local]
-libuuid1/now 2.38.1-5+deb12u3 amd64 [installed,local]
-libxxhash0/now 0.8.1-1 amd64 [installed,local]
-libzstd1/now 1.5.4+dfsg2-5 amd64 [installed,local]
-locales-all/now 2.36-9+deb12u10 amd64 [installed,local]
-login/now 1:4.13+dfsg1-1+deb12u1 amd64 [installed,local]
-logsave/now 1.47.0-2 amd64 [installed,local]
-mawk/now 1.3.4.20200120-3.1 amd64 [installed,local]
-mount/now 2.38.1-5+deb12u3 amd64 [installed,local]
-ncurses-base/now 6.4-4 all [installed,local]
-ncurses-bin/now 6.4-4 amd64 [installed,local]
-openssl/now 3.0.16-1~deb12u1 amd64 [installed,local]
-passwd/now 1:4.13+dfsg1-1+deb12u1 amd64 [installed,local]
-perl-base/now 5.36.0-7+deb12u2 amd64 [installed,local]
-sed/now 4.9-1 amd64 [installed,local]
-sysvinit-utils/now 3.06-4 amd64 [installed,local]
-tar/now 1.34+dfsg-1.2+deb12u1 amd64 [installed,local]
-tzdata/now 2025b-0+deb12u1 all [installed,local]
-usr-is-merged/now 37~deb12u1 all [installed,local]
-util-linux-extra/now 2.38.1-5+deb12u3 amd64 [installed,local]
-util-linux/now 2.38.1-5+deb12u3 amd64 [installed,local]
-zlib1g/now 1:1.2.13.dfsg-1 amd64 [installed,local]
+alpine-baselayout
+alpine-baselayout-data
+alpine-keys
+alpine-release
+apk-tools
+busybox
+busybox-binsh
+ca-certificates-bundle
+libapk2
+libcrypto3
+libssl3
+musl
+musl-utils
+scanelf
+ssl_client
+zlib
 ```
 
 
 ---
 
-last_updated: ('Sat Jun 14 19:05:46 2025', '+08')
+last_updated: Sat Jun 21 02:48:40 2025

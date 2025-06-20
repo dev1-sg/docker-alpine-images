@@ -10,6 +10,6 @@ ENV TZ=Asia/Singapore \
     LC_ALL=en_US.UTF-8
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    ca-certificates locales-all \
+    sudo bash git curl ca-certificates jq locales-all \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

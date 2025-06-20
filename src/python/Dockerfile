@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM docker.io/python:3.13.5-bookworm AS base
+FROM docker.io/python:3.13.5-alpine3.21 AS base
 
 USER root
 
@@ -11,9 +11,7 @@ ENV TZ=Asia/Singapore \
 
 WORKDIR /app
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    ca-certificates locales-all \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install --no-cache-dir --upgrade pip
+RUN apk add --no-cache \
+    sudo bash git aws-cli curl ca-certificates jq \
+    && rm -rf /var/cache/apk/* \
+    && ln -s /var/cache/apk /etc/apk/cache
