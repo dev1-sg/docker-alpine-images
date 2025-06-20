@@ -1,10 +1,10 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/alpine
+**Image**: public.ecr.aws/dev1-sg/base/alpine:latest
 
-**os_name**: "Alpine Linux"
+**os_name**: Alpine Linux
 
-**os_version_id**: 3.18.12
+**os_version_id**: 3.22.0
 
 **os_id**: alpine
 
@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=b2cf5e6a8db8
+HOSTNAME=607c5061ed4e
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -31,6 +31,7 @@ HOME=/root
 alpine-baselayout
 alpine-baselayout-data
 alpine-keys
+alpine-release
 apk-tools
 aws-c-auth
 aws-c-cal
@@ -49,14 +50,16 @@ bash
 brotli-libs
 busybox
 busybox-binsh
+c-ares
 ca-certificates
 ca-certificates-bundle
 curl
 gdbm
 git
+git-init-template
 jq
+libapk2
 libbz2
-libc-utils
 libcrypto3
 libcurl
 libexpat
@@ -107,6 +110,8 @@ py3-urllib3
 py3-urllib3-pyc
 py3-wcwidth
 py3-wcwidth-pyc
+py3-zipp
+py3-zipp-pyc
 pyc
 python3
 python3-pyc
@@ -119,9 +124,10 @@ ssl_client
 sudo
 xz-libs
 zlib
+zstd-libs
 ```
 
 
 ---
 
-last_updated: Sat Jun 21 02:48:40 2025
+last_updated: ('Sat Jun 21 03:05:27 2025', '+08')
