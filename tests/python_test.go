@@ -10,17 +10,17 @@ import (
 )
 
 var Python = struct {
-	AWS_DEFAULT_REGION string
-	AWS_ECR_PUBLIC_URI string
-	DOCKER_IMAGE_GROUP string
-	DOCKER_IMAGE       string
-	DOCKER_IMAGE_TAG   string
+	AWS_DEFAULT_REGION              string
+	AWS_ECR_PUBLIC_URI              string
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP string
+	AWS_ECR_PUBLIC_IMAGE_NAME       string
+	AWS_ECR_PUBLIC_IMAGE_TAG        string
 }{
-	AWS_DEFAULT_REGION: "us-east-1",
-	AWS_ECR_PUBLIC_URI: "public.ecr.aws/dev1-sg",
-	DOCKER_IMAGE_GROUP: "base",
-	DOCKER_IMAGE:       "python",
-	DOCKER_IMAGE_TAG:   "latest",
+	AWS_DEFAULT_REGION:              "us-east-1",
+	AWS_ECR_PUBLIC_URI:              "public.ecr.aws/dev1-sg",
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP: "base",
+	AWS_ECR_PUBLIC_IMAGE_NAME:       "python",
+	AWS_ECR_PUBLIC_IMAGE_TAG:        "latest",
 }
 
 func TestContainersGoPullPython(t *testing.T) {
@@ -28,7 +28,7 @@ func TestContainersGoPullPython(t *testing.T) {
 	for attempt := 0; attempt < 3; attempt++ {
 		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 			ContainerRequest: testcontainers.ContainerRequest{
-				Image: Python.AWS_ECR_PUBLIC_URI + "/" + Python.DOCKER_IMAGE_GROUP + "/" + Python.DOCKER_IMAGE + ":" + Python.DOCKER_IMAGE_TAG,
+				Image: Python.AWS_ECR_PUBLIC_URI + "/" + Python.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Python.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Python.AWS_ECR_PUBLIC_IMAGE_TAG,
 			},
 		})
 		require.NoError(t, e)
@@ -40,7 +40,7 @@ func TestContainersGoExecPython(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Python.AWS_ECR_PUBLIC_URI + "/" + Python.DOCKER_IMAGE_GROUP + "/" + Python.DOCKER_IMAGE + ":" + Python.DOCKER_IMAGE_TAG,
+			Image: Python.AWS_ECR_PUBLIC_URI + "/" + Python.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Python.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Python.AWS_ECR_PUBLIC_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,

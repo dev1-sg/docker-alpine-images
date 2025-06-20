@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 env:
-  DOCKER_IMAGE: ubuntu
+  AWS_ECR_PUBLIC_IMAGE_NAME: ubuntu
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   TZ: Asia/Singapore
 

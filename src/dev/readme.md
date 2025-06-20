@@ -1,8 +1,8 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/dev:latest
+**Image**: public.ecr.aws/dev1-sg/base/dev
 
-**os_name**: Alpine Linux
+**os_name**: "Alpine Linux"
 
 **os_version_id**: 3.22.0
 
@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=e1bf4f369666
+HOSTNAME=7b5c63930f63
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -49,4 +49,4 @@ zlib
 
 ---
 
-last_updated: ('Sat Jun 21 03:19:29 2025', '+08')
+last_updated: Sat Jun 21 07:03:33 2025

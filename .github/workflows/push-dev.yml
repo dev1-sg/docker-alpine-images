@@ -16,8 +16,8 @@ permissions:
 env:
   AWS_DEFAULT_REGION: us-east-1
   AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-  DOCKER_IMAGE_GROUP: base
-  DOCKER_IMAGE: dev
+  AWS_ECR_PUBLIC_REPOSITORY_GROUP: base
+  AWS_ECR_PUBLIC_IMAGE_NAME: dev
   TZ: Asia/Singapore
 
 jobs:
@@ -52,19 +52,19 @@ jobs:
       - name: Extract Version from Dockerfile
         id: extract_version
         run: |
-          AWS_ECR_PUBLIC_IMAGE_TAG=$(cat ./src/${{env.DOCKER_IMAGE}}/version)
+          AWS_ECR_PUBLIC_IMAGE_TAG=$(cat ./src/${{env.AWS_ECR_PUBLIC_IMAGE_NAME}}/version)
           echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}" >> $GITHUB_ENV
           echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}"
 
       - name: Create AWS ECR Public Repository
         run: |
-          aws ecr-public create-repository --repository-name ${{ env.DOCKER_IMAGE_GROUP }}/${{ env.DOCKER_IMAGE }} --region ${{ env.AWS_DEFAULT_REGION }} || true
+          aws ecr-public create-repository --repository-name ${{ env.AWS_ECR_PUBLIC_REPOSITORY_GROUP }}/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }} --region ${{ env.AWS_DEFAULT_REGION }} || true
 
       - name: Docker build & push
         uses: docker/bake-action@v5
         with:
           targets: push
-          workdir: ./src/${{ env.DOCKER_IMAGE }}
+          workdir: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
   run-push:
     runs-on: ubuntu-latest
@@ -95,7 +95,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: python3 scripts/run_image_readme.py ${{ env.DOCKER_IMAGE }}
+      - run: python3 scripts/run_image_readme.py ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
       - name: 'commit update'
         env:
@@ -107,7 +107,7 @@ jobs:
           git config pull.rebase false
           git checkout main
           git pull origin main
-          git add ./src/${{ env.DOCKER_IMAGE }}/readme.md
+          git add ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}/readme.md
           git commit -m 'Automated documentation update [skip ci]' || echo "No changes to commit"
 
           if ! git push origin main; then

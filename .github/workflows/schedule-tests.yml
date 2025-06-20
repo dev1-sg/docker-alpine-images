@@ -9,7 +9,7 @@ on:
       - tests/*
   workflow_dispatch:
   schedule:
-    - cron: 0 6 * * *
+    - cron: '0 8 * * *'
 
 permissions:
   id-token: write

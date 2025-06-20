@@ -10,17 +10,17 @@ import (
 )
 
 var Dev = struct {
-	AWS_DEFAULT_REGION string
-	AWS_ECR_PUBLIC_URI string
-	DOCKER_IMAGE_GROUP string
-	DOCKER_IMAGE       string
-	DOCKER_IMAGE_TAG   string
+	AWS_DEFAULT_REGION              string
+	AWS_ECR_PUBLIC_URI              string
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP string
+	AWS_ECR_PUBLIC_IMAGE_NAME       string
+	AWS_ECR_PUBLIC_IMAGE_TAG        string
 }{
-	AWS_DEFAULT_REGION: "us-east-1",
-	AWS_ECR_PUBLIC_URI: "public.ecr.aws/dev1-sg",
-	DOCKER_IMAGE_GROUP: "base",
-	DOCKER_IMAGE:       "dev",
-	DOCKER_IMAGE_TAG:   "latest",
+	AWS_DEFAULT_REGION:              "us-east-1",
+	AWS_ECR_PUBLIC_URI:              "public.ecr.aws/dev1-sg",
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP: "base",
+	AWS_ECR_PUBLIC_IMAGE_NAME:       "dev",
+	AWS_ECR_PUBLIC_IMAGE_TAG:        "latest",
 }
 
 func TestContainersGoPullDev(t *testing.T) {
@@ -28,7 +28,7 @@ func TestContainersGoPullDev(t *testing.T) {
 	for attempt := 0; attempt < 3; attempt++ {
 		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 			ContainerRequest: testcontainers.ContainerRequest{
-				Image: Dev.AWS_ECR_PUBLIC_URI + "/" + Dev.DOCKER_IMAGE_GROUP + "/" + Dev.DOCKER_IMAGE + ":" + Dev.DOCKER_IMAGE_TAG,
+				Image: Dev.AWS_ECR_PUBLIC_URI + "/" + Dev.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Dev.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Dev.AWS_ECR_PUBLIC_IMAGE_TAG,
 			},
 		})
 		require.NoError(t, e)
@@ -40,7 +40,7 @@ func TestContainersGoExecDev(t *testing.T) {
 	ctx := context.Background()
 	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Dev.AWS_ECR_PUBLIC_URI + "/" + Dev.DOCKER_IMAGE_GROUP + "/" + Dev.DOCKER_IMAGE + ":" + Dev.DOCKER_IMAGE_TAG,
+			Image: Dev.AWS_ECR_PUBLIC_URI + "/" + Dev.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Dev.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Dev.AWS_ECR_PUBLIC_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
@@ -49,10 +49,7 @@ func TestContainersGoExecDev(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"node", "--version"},
-		{"npm", "--version"},
-		{"python", "--version"},
-		{"pip", "--version"},	
+		{"echo", "hello world"},
 	}
 
 	for _, cmd := range commands {

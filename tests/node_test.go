@@ -10,17 +10,17 @@ import (
 )
 
 var Node = struct {
-	AWS_DEFAULT_REGION string
-	AWS_ECR_PUBLIC_URI string
-	DOCKER_IMAGE_GROUP string
-	DOCKER_IMAGE       string
-	DOCKER_IMAGE_TAG   string
+	AWS_DEFAULT_REGION              string
+	AWS_ECR_PUBLIC_URI              string
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP string
+	AWS_ECR_PUBLIC_IMAGE_NAME       string
+	AWS_ECR_PUBLIC_IMAGE_TAG        string
 }{
-	AWS_DEFAULT_REGION: "us-east-1",
-	AWS_ECR_PUBLIC_URI: "public.ecr.aws/dev1-sg",
-	DOCKER_IMAGE_GROUP: "base",
-	DOCKER_IMAGE:       "node",
-	DOCKER_IMAGE_TAG:   "latest",
+	AWS_DEFAULT_REGION:              "us-east-1",
+	AWS_ECR_PUBLIC_URI:              "public.ecr.aws/dev1-sg",
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP: "base",
+	AWS_ECR_PUBLIC_IMAGE_NAME:       "node",
+	AWS_ECR_PUBLIC_IMAGE_TAG:        "latest",
 }
 
 func TestContainersGoPullNode(t *testing.T) {
@@ -28,7 +28,7 @@ func TestContainersGoPullNode(t *testing.T) {
 	for attempt := 0; attempt < 3; attempt++ {
 		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 			ContainerRequest: testcontainers.ContainerRequest{
-				Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.DOCKER_IMAGE_GROUP + "/" + Node.DOCKER_IMAGE + ":" + Node.DOCKER_IMAGE_TAG,
+				Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Node.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Node.AWS_ECR_PUBLIC_IMAGE_TAG,
 			},
 		})
 		require.NoError(t, e)
@@ -40,7 +40,7 @@ func TestContainersGoExecNode(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.DOCKER_IMAGE_GROUP + "/" + Node.DOCKER_IMAGE + ":" + Node.DOCKER_IMAGE_TAG,
+			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Node.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Node.AWS_ECR_PUBLIC_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,

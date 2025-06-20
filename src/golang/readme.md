@@ -1,8 +1,8 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/golang:latest
+**Image**: public.ecr.aws/dev1-sg/base/golang
 
-**os_name**: Alpine Linux
+**os_name**: "Alpine Linux"
 
 **os_version_id**: 3.21.3
 
@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=957725ffd701
+HOSTNAME=e66f09d80918
 GOLANG_VERSION=1.24.4
 GOTOOLCHAIN=local
 GOPATH=/go
@@ -130,4 +130,4 @@ zstd-libs
 
 ---
 
-last_updated: ('Sat Jun 21 03:07:41 2025', '+08')
+last_updated: Sat Jun 21 07:03:33 2025

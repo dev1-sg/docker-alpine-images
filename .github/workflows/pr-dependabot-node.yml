@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 env:
-  DOCKER_IMAGE: node
+  AWS_ECR_PUBLIC_IMAGE_NAME: node
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   TZ: Asia/Singapore
 
@@ -37,7 +37,7 @@ jobs:
         uses: docker/bake-action@v5
         with:
           targets: test
-          workdir: ./src/${{ env.DOCKER_IMAGE }}
+          workdir: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
       - name: Setup Dependabot Metadata
         id: metadata
