@@ -95,7 +95,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: python3 run_image_readme.py ${{ DOCKER_IMAGE }}
+      - run: python3 run_image_readme.py ${{ env.DOCKER_IMAGE }}
 
       - name: Commit and Update
         env:
