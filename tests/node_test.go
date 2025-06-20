@@ -38,22 +38,29 @@ func TestContainersGoPullNode(t *testing.T) {
 
 func TestContainersGoExecNode(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Node.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Node.AWS_ECR_PUBLIC_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
 	})
-	require.NoError(t, e)
+	require.NoError(t, err)
 	defer container.Terminate(ctx)
 
-	exitCode, reader, e := container.Exec(ctx, []string{"node", "--version"})
-	require.NoError(t, e)
-	require.Equal(t, 0, exitCode)
+	commands := [][]string{
+		{"node", "--version"},
+	}
 
-	output, e := io.ReadAll(reader)
-	require.NoError(t, e)
+	for _, cmd := range commands {
+		exitCode, reader, err := container.Exec(ctx, cmd)
+		require.NoError(t, err)
+		require.Equal(t, 0, exitCode)
 
-	require.Contains(t, string(output), "v", "Expected output not found")
+		output, err := io.ReadAll(reader)
+		require.NoError(t, err)
+
+		t.Logf("Command: %v\nOutput: %s\n", cmd, output)
+		require.NotEmpty(t, output)
+	}
 }

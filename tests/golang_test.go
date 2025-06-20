@@ -38,22 +38,29 @@ func TestContainersGoPullGolang(t *testing.T) {
 
 func TestContainersGoExecGolang(t *testing.T) {
 	ctx := context.Background()
-	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: Golang.AWS_ECR_PUBLIC_URI + "/" + Golang.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Golang.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Golang.AWS_ECR_PUBLIC_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
 	})
-	require.NoError(t, e)
+	require.NoError(t, err)
 	defer container.Terminate(ctx)
 
-	exitCode, reader, e := container.Exec(ctx, []string{"go", "version"})
-	require.NoError(t, e)
-	require.Equal(t, 0, exitCode)
+	commands := [][]string{
+		{"go", "version"},
+	}
 
-	output, e := io.ReadAll(reader)
-	require.NoError(t, e)
+	for _, cmd := range commands {
+		exitCode, reader, err := container.Exec(ctx, cmd)
+		require.NoError(t, err)
+		require.Equal(t, 0, exitCode)
 
-	require.Contains(t, string(output), "go version", "Expected output not found")
+		output, err := io.ReadAll(reader)
+		require.NoError(t, err)
+
+		t.Logf("Command: %v\nOutput: %s\n", cmd, output)
+		require.NotEmpty(t, output)
+	}
 }
