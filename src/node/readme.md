@@ -1,8 +1,8 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/node
+**Image**: public.ecr.aws/dev1-sg/base/node:latest
 
-**os_name**: "Alpine Linux"
+**os_name**: Alpine Linux
 
 **os_version_id**: 3.21.3
 
@@ -13,7 +13,7 @@
 ```bash
 LANGUAGE=en_US:en
 NODE_VERSION=24.2.0
-HOSTNAME=9a5438fc323e
+HOSTNAME=9edbb7ef1f29
 YARN_VERSION=1.22.22
 SHLVL=1
 HOME=/root
@@ -30,6 +30,7 @@ TZ=Asia/Singapore
 corepack
 docker-entrypoint.sh
 node
+nodejs
 npm
 npx
 yarn
@@ -138,4 +139,4 @@ zstd-libs
 
 ---
 
-last_updated: Sat Jun 21 07:03:33 2025
+last_updated: ('Sat Jun 21 07:06:56 2025', '+08')
