@@ -12,8 +12,9 @@ This repository contains Dockerfiles for building Docker images.
 | 3 | [base/golang](https://gallery.ecr.aws/dev1-sg/base/golang) | base | public.ecr.aws/dev1-sg/base/golang | 1.24.4 | 123.30
 | 4 | [base/node](https://gallery.ecr.aws/dev1-sg/base/node) | base | public.ecr.aws/dev1-sg/base/node | 24.2.0 | 98.52
 | 5 | [base/python](https://gallery.ecr.aws/dev1-sg/base/python) | base | public.ecr.aws/dev1-sg/base/python | 3.13.5 | 59.08
-| 6 | [base/ubuntu](https://gallery.ecr.aws/dev1-sg/base/ubuntu) | base | public.ecr.aws/dev1-sg/base/ubuntu | 24.04 | 118.07
+| 6 | [base/readme-update](https://gallery.ecr.aws/dev1-sg/base/readme-update) | base | public.ecr.aws/dev1-sg/base/readme-update | 1.0.0 | 194.61
+| 7 | [base/ubuntu](https://gallery.ecr.aws/dev1-sg/base/ubuntu) | base | public.ecr.aws/dev1-sg/base/ubuntu | 24.04 | 118.07
 
 ---
 
-last_updated: Sat Jun 21 16:13:31 2025 +08
+last_updated: Sun Jun 22 16:13:21 2025 +08
