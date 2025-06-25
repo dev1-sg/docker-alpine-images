@@ -41,10 +41,6 @@ jobs:
           role-session-name: aws-oidc-${{ github.repository.name }}-${{ github.run_id }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
-      - name: Login to AWS ECR Public Registry
-        id: login-ecr-public
-        uses: aws-actions/amazon-ecr-login@v2
-
       - run: pip install -r requirements.txt
 
       - run: python3 scripts/generate_main_readme.py
