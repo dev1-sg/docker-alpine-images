@@ -17,11 +17,6 @@ submodules() {
   done
 }
 
-files() {
-  echo "Listing files..."
-  find . -path ./.git -prune -o -ls > files
-}
-
 venv() {
   echo "Setting up venv..."
   python3 -m venv .venv \
