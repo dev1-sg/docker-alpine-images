@@ -1,8 +1,8 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/node
+**Image**: public.ecr.aws/dev1-sg/ci/node:latest
 
-**os_name**: "Alpine Linux"
+**os_name**: Alpine Linux
 
 **os_version_id**: 3.21.3
 
@@ -13,7 +13,7 @@
 ```bash
 LANGUAGE=en_US:en
 NODE_VERSION=24.2.0
-HOSTNAME=72151c9254d5
+HOSTNAME=1dc3313377c8
 YARN_VERSION=1.22.22
 SHLVL=1
 HOME=/root
@@ -139,4 +139,4 @@ zstd-libs
 
 ---
 
-last_updated: Wed Jun 25 17:03:32 2025
+last_updated: ('Thu Jun 26 10:22:49 2025', '+08')
