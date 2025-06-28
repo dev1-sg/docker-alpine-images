@@ -16,7 +16,7 @@ permissions:
 env:
   AWS_DEFAULT_REGION: us-east-1
   AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-  AWS_ECR_PUBLIC_REPOSITORY_GROUP: ci
+  AWS_ECR_PUBLIC_REPOSITORY_GROUP: base
   AWS_ECR_PUBLIC_IMAGE_NAME: alpine
   TZ: Asia/Singapore
 
@@ -52,8 +52,8 @@ jobs:
       - name: Extract Version from Dockerfile
         uses: ./.github/actions/apply-tags
         with:
-          AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
           AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT: tags.sh
+        working-directory: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
       - name: Create AWS ECR Public Repository
         run: |
