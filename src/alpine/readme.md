@@ -1,6 +1,6 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/ci/alpine:latest
+**Image**: public.ecr.aws/dev1-sg/base/alpine:latest
 
 **os_name**: Alpine Linux
 
@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=39d2ee608bcf
+HOSTNAME=280e480a1cf2
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -130,4 +130,4 @@ zstd-libs
 
 ---
 
-last_updated: ('Thu Jun 26 10:24:47 2025', '+08')
+last_updated: ('Sun Jun 29 05:30:35 2025', '+08')
