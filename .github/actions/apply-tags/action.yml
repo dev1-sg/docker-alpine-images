@@ -15,6 +15,7 @@ runs:
   steps:
     - name: Extract Version from Dockerfile
       id: extract_version
+      shell: bash
       run: |
         AWS_ECR_PUBLIC_IMAGE_TAG=$(./src/${{ inputs.AWS_ECR_PUBLIC_IMAGE_NAME }}/${{ inputs.AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT }})
         echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}" >> $GITHUB_ENV
