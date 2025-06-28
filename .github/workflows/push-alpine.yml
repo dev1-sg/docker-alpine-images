@@ -53,7 +53,7 @@ jobs:
         uses: ./.github/actions/apply-tags
         with:
           AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT: tags.sh
-        working-directory: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
+        workdir: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
       - name: Create AWS ECR Public Repository
         run: |
