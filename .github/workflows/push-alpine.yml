@@ -50,11 +50,10 @@ jobs:
           registry-type: public
 
       - name: Extract Version from Dockerfile
-        id: extract_version
-        run: |
-          AWS_ECR_PUBLIC_IMAGE_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}/Dockerfile)
-          echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}" >> $GITHUB_ENV
-          echo "AWS_ECR_PUBLIC_IMAGE_TAG=${AWS_ECR_PUBLIC_IMAGE_TAG#v}"
+        uses: ./.github/actions/apply-tags
+        with:
+          AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
+          AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT: tags.sh
 
       - name: Create AWS ECR Public Repository
         run: |
