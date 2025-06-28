@@ -52,8 +52,8 @@ jobs:
       - name: Extract Version from Dockerfile
         uses: ./.github/actions/apply-tags
         with:
+          AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
           AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT: tags.sh
-        workdir: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
       - name: Create AWS ECR Public Repository
         run: |
