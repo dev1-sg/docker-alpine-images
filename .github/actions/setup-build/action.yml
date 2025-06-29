@@ -17,6 +17,7 @@ runs:
   using: composite
   steps:
     - name: Set shell options
+      shell: bash
       run: set -euxo pipefail
 
     - name: Setup qemu
@@ -39,5 +40,6 @@ runs:
         registry-type: public
 
     - name: Create AWS ECR Public Repository
+      shell: bash
       run: |
         aws ecr-public create-repository --repository-name ${{ env.AWS_ECR_PUBLIC_REPOSITORY_GROUP }}/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }} --region us-east-1 || true
