@@ -15,7 +15,7 @@ variable "AWS_ECR_PUBLIC_URL" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_NAME" {
-  default = "dev"
+  default = "golang-python"
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
@@ -23,7 +23,7 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
-  default = "public.ecr.aws/dev1-sg/base/dev:1.0.0"
+  default = "public.ecr.aws/dev1-sg/base/golang-python:1.0.0"
 }
 
 variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {

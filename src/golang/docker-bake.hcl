@@ -19,11 +19,11 @@ variable "AWS_ECR_PUBLIC_IMAGE_NAME" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
-  default = "1.24.4-alpine3.21"
+  default = "1.0.0"
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
-  default = "public.ecr.aws/dev1-sg/base/golang:1.24.4-alpine3.21"
+  default = "public.ecr.aws/dev1-sg/base/golang:1.0.0"
 }
 
 variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {
