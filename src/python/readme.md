@@ -1,8 +1,8 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/python:latest
+**Image**: public.ecr.aws/dev1-sg/base/python
 
-**os_name**: Alpine Linux
+**os_name**: "Alpine Linux"
 
 **os_version_id**: 3.21.3
 
@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=b7df334ce701
+HOSTNAME=6544c5f8fb1b
 GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305
 PYTHON_VERSION=3.13.5
 PYTHON_SHA256=93e583f243454e6e9e4588ca2c2662206ad961659863277afcdb96801647d640
@@ -148,4 +148,4 @@ zstd-libs
 
 ---
 
-last_updated: ('Thu Jun 26 10:22:28 2025', '+08')
+last_updated: Sun Jun 29 08:51:35 2025
