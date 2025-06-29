@@ -1,10 +1,10 @@
 ## Operating System
 
-**Image**: public.ecr.aws/dev1-sg/base/ubuntu
+**Image**: public.ecr.aws/dev1-sg/base/ubuntu:latest
 
-**os_name**: "Ubuntu"
+**os_name**: Ubuntu
 
-**os_version_id**: "24.04"
+**os_version_id**: 24.04
 
 **os_id**: ubuntu
 
@@ -12,7 +12,7 @@
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=f3f06303b42c
+HOSTNAME=905c413e389c
 TZ=Asia/Singapore
 LANG=en_US.UTF-8
 LANGUAGE=en_US:en
@@ -158,4 +158,4 @@ zlib1g/now 1:1.3.dfsg-3.1ubuntu2.1 amd64 [installed,local]
 
 ---
 
-last_updated: Sun Jun 29 08:51:35 2025
+last_updated: ('Sun Jun 29 10:47:16 2025', '+08')
