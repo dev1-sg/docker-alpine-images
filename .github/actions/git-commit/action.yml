@@ -13,6 +13,7 @@ runs:
     - name: 'commit update'
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+      shell: bash
       run: |
         echo "Start."
         git config --global user.email github-actions[bot]@users.noreply.github.com
