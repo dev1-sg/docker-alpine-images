@@ -1,12 +1,15 @@
 ---
-name: Push alpine
+name: Push node
 
 on:
   push:
     branches:
       - main
     paths:
-      - src/alpine/*
+      - src/node/*
+  pull_request:
+    paths:
+      - src/node/*
   workflow_dispatch:
 
 permissions:
@@ -14,9 +17,8 @@ permissions:
   contents: write
 
 env:
-  AWS_DEFAULT_REGION: us-east-1
   AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-  AWS_ECR_PUBLIC_IMAGE_NAME: alpine
+  AWS_ECR_PUBLIC_IMAGE_NAME: node
   AWS_ECR_PUBLIC_REPOSITORY_GROUP: base
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TZ: Asia/Singapore
@@ -24,6 +26,7 @@ env:
 jobs:
   build-push:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -49,6 +52,7 @@ jobs:
 
   run-push:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: build-push
     steps:
       - name: Checkout Repository
@@ -94,9 +98,9 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v2
         with:
-          github-token: ${{env.GH_TOKEN}}
+          github-token: ${{env.GITHUB_TOKEN}}
 
       - name: Auto-merge for Dependabot PR
         run: gh pr merge --auto --rebase ${{ github.event.pull_request.number }}
         env:
-          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}

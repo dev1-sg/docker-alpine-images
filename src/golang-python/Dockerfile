@@ -1,7 +1,7 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM docker.io/python:3.13.5-alpine3.21 AS python
 FROM docker.io/golang:1.24.4-alpine3.21 AS golang
+FROM docker.io/python:3.13.5-alpine3.21 AS python
 FROM docker.io/docker:28.2.2-cli-alpine3.21 AS base
 
 USER root
@@ -18,6 +18,6 @@ RUN apk add --no-cache \
     && rm -rf /var/cache/apk/* \
     && ln -s /var/cache/apk /etc/apk/cache
 
+COPY --from=golang /usr/local/go /usr/local/go
 COPY --from=python /usr/local/bin /usr/local/bin
 COPY --from=python /usr/local/lib /usr/local/lib
-COPY --from=golang /usr/local/go /usr/local/go

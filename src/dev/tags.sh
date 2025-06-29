@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-cat version
+cat version | head -1
