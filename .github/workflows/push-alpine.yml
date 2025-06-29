@@ -45,7 +45,7 @@ jobs:
       uses: docker/bake-action@v5
       with:
         targets: push
-        workdir: ./src/${{ env.AWSy-tags_ECR_PUBLIC_IMAGE_NAME }}
+        workdir: ./src/${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
 
   run-push:
     runs-on: ubuntu-latest
