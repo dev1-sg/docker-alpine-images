@@ -25,24 +25,27 @@ jobs:
   build-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup build
-        uses: ./.github/actions/setup-build
-        with:
-          AWS_OIDC_ROLE_ARN: ${{ env.AWS_OIDC_ROLE_ARN }}
-          AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
-          AWS_ECR_PUBLIC_REPOSITORY_GROUP: ${{ env.AWS_ECR_PUBLIC_REPOSITORY_GROUP }}
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Extract Version from Dockerfile
-        uses: ./.github/actions/apply-tags
-        with:
-          AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
-          AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT: tags.sh
+    - name: Setup build
+      uses: ./.github/actions/setup-build
+      with:
+        AWS_OIDC_ROLE_ARN: ${{ env.AWS_OIDC_ROLE_ARN }}
+        AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
+        AWS_ECR_PUBLIC_REPOSITORY_GROUP: ${{ env.AWS_ECR_PUBLIC_REPOSITORY_GROUP }}
 
-      - name: Docker build & push
-        uses: docker/bake-action@v5
-        with:
-          targets: push
-          workdir: ./src/${{ env.AWSy-tags_ECR_PUBLIC_IMAGE_NAME }}
+    - name: Extract Version from Dockerfile
+      uses: ./.github/actions/apply-tags
+      with:
+        AWS_ECR_PUBLIC_IMAGE_NAME: ${{ env.AWS_ECR_PUBLIC_IMAGE_NAME }}
+        AWS_ECR_PUBLIC_IMAGE_TAG_SCRIPT: tags.sh
+
+    - name: Docker build & push
+      uses: docker/bake-action@v5
+      with:
+        targets: push
+        workdir: ./src/${{ env.AWSy-tags_ECR_PUBLIC_IMAGE_NAME }}
 
   run-push:
     runs-on: ubuntu-latest

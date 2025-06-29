@@ -16,9 +16,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
     - name: Set shell options
       run: set -euxo pipefail
 
