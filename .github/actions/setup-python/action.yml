@@ -20,11 +20,13 @@ runs:
         cache: 'pip'
         cache-dependency-path: requirements.txt
 
+    - name: Install pip requirements
+      shell: bash
+      run: pip install -r requirements.txt
+
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: ${{ inputs.AWS_OIDC_ROLE_ARN }}
         role-session-name: aws-oidc-${{ github.repository.name }}-${{ github.run_id }}
         aws-region: us-east-1
-
-    - run: pip install -r requirements.txt
