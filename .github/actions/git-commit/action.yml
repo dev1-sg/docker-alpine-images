@@ -15,17 +15,19 @@ runs:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
       shell: bash
       run: |
-        echo "Start."
         git config --global user.email github-actions[bot]@users.noreply.github.com
         git config --global user.name github-actions[bot]
         git config pull.rebase false
+
+        git fetch origin
         git checkout main
-        git pull origin main
+        git reset --hard origin/main
+
         git add .
         git commit -m 'Automated documentation update [skip ci]' || echo "No changes to commit"
 
-        if ! git push origin main; then
-          echo "Push failed, trying git pull --rebase and push again..."
-          git pull --rebase origin main
-          git push origin main
+        if ! git push --force-with-lease origin main; then
+          echo "Push failed — remote main may have changed."
+          echo "Skipping force push to avoid overwriting someone else's work."
+          exit 1
         fi
