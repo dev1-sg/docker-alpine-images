@@ -7,6 +7,3 @@ This repository contains a collection of base Docker images used across multiple
 
 Public ECR Gallery:
 https://gallery.ecr.aws/dev1-sg/
-
-For the latest list of available images and tags, see:
-[`./ecr-image-list.ipynb`](./ecr-image-list.ipynb)
