@@ -2,7 +2,7 @@
 
 FROM docker.io/node:24.3.0-alpine3.21 AS node
 FROM docker.io/python:3.13.5-alpine3.21 AS python
-FROM docker.io/alpine:3.21 AS base
+FROM docker.io/alpine:3.22 AS base
 
 USER root
 
