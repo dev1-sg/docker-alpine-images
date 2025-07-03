@@ -13,8 +13,9 @@ updates:
     directories:
       - /src/alpine
       - /src/dev
-      - /src/golang
       - /src/golang-python
+      - /src/golang
+      - /src/node-python
       - /src/node
       - /src/python
       - /src/ubuntu
