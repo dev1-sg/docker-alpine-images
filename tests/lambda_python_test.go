@@ -1,4 +1,4 @@
-package tests
+9package tests
 
 import (
 	"context"
@@ -50,7 +50,7 @@ func TestContainersGoExecLambdaPython(t *testing.T) {
 
 	commands := [][]string{
 		{"python", "--version"},
-		{"python", "-c", "import awslambdaric"},
+		{"python", "-c", "import", "awslambdaric"},
 		{"test", "-x", "/var/runtime/aws-lambda-rie"},
 	}
 
