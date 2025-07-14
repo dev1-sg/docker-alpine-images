@@ -4,6 +4,7 @@ This repository contains a collection of base Docker images used across multiple
 
 - Dependency updates are managed by Dependabot
 - Images are automatically built, auto-merged, and pushed to Amazon ECR Public
+- Periodic tests are run using Testcontainers
 
 Public ECR Gallery:
 https://gallery.ecr.aws/dev1-sg/
