@@ -51,7 +51,7 @@ func TestContainersGoExecLambdaPython(t *testing.T) {
 	commands := [][]string{
 		{"python", "--version"},
 		{"python", "-c", "import awslambdaric"},
-		{"test", "-x", "/var/runtime/aws-lambda-rie"}
+		{"test", "-x", "/var/runtime/aws-lambda-rie"},
 	}
 
 	for _, cmd := range commands {
