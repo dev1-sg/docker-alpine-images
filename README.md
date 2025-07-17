@@ -1,5 +1,7 @@
 # docker-base-images
 
+[![Build On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
+
 This repository contains a collection of base Docker images used across multiple projects.
 
 - Dependency updates are managed by Dependabot
