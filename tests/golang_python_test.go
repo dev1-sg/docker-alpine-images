@@ -18,7 +18,7 @@ var GolangPython = struct {
 }{
 	AWS_DEFAULT_REGION:              "us-east-1",
 	AWS_ECR_PUBLIC_URI:              "public.ecr.aws/dev1-sg",
-	AWS_ECR_PUBLIC_REPOSITORY_GROUP: "base",
+	AWS_ECR_PUBLIC_REPOSITORY_GROUP: "alpine",
 	AWS_ECR_PUBLIC_IMAGE_NAME:       "golang-python",
 	AWS_ECR_PUBLIC_IMAGE_TAG:        "latest",
 }

@@ -19,7 +19,7 @@ permissions:
 env:
   AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN }}
   AWS_ECR_PUBLIC_IMAGE_NAME: golang
-  AWS_ECR_PUBLIC_REPOSITORY_GROUP: base
+  AWS_ECR_PUBLIC_REPOSITORY_GROUP: alpine
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TZ: Asia/Singapore
 

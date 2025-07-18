@@ -1,8 +1,8 @@
-# docker-base-images
+# docker-alpine-images
 
 [![Build On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
-This repository contains a collection of base Docker images used across multiple projects.
+This repository contains a collection of alpine Docker images used across multiple projects.
 
 - Dependency updates are managed by Dependabot
 - Images are automatically built, auto-merged, and pushed to Amazon ECR Public

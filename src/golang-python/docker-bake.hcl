@@ -23,11 +23,11 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
-  default = "public.ecr.aws/dev1-sg/base/golang-python:latest"
+  default = "public.ecr.aws/dev1-sg/alpine/golang-python:latest"
 }
 
 variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {
-  default = "base"
+  default = "alpine"
 }
 
 group "default" {
@@ -37,7 +37,7 @@ group "default" {
 target "metadata" {
   labels = {
     "org.opencontainers.image.title"       = "${AWS_ECR_PUBLIC_IMAGE_NAME}"
-    "org.opencontainers.image.description" = "Minimal Alpine base image for internal use"
+    "org.opencontainers.image.description" = "Minimal Alpine alpine image for internal use"
     "org.opencontainers.image.url"         = "https://gitlab.com/dev1-sg/public/docker-${AWS_ECR_PUBLIC_REPOSITORY_GROUP}-images/-/tree/main/src/${AWS_ECR_PUBLIC_IMAGE_NAME}"
     "org.opencontainers.image.source"      = "https://gitlab.com/dev1-sg/public/docker-${AWS_ECR_PUBLIC_REPOSITORY_GROUP}-images"
     "org.opencontainers.image.version"     = "${AWS_ECR_PUBLIC_IMAGE_TAG}"

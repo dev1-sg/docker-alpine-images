@@ -23,11 +23,11 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
-  default = "public.ecr.aws/dev1-sg/base/node:latest"
+  default = "public.ecr.aws/dev1-sg/alpine/node:latest"
 }
 
 variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {
-  default = "base"
+  default = "alpine"
 }
 
 group "default" {
