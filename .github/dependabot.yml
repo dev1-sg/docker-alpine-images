@@ -14,12 +14,10 @@ updates:
       - /src/alpine
       - /src/dev
       - /src/golang-python
-      - /src/lambda-python
       - /src/golang
       - /src/node-python
       - /src/node
       - /src/python
-      - /src/ubuntu
     schedule:
       interval: daily
     commit-message:
