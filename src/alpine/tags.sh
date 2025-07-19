@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' Dockerfile | head -1
+alpine=($(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' Dockerfile | head -1))
+
+echo "${alpine:-dev}"

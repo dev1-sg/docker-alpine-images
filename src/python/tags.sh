@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' Dockerfile | head -1
+alpine=($(sed -n 's|.*python:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile))
+python=($(sed -n 's|.*python:\([0-9.]*\)-alpine[0-9.]*.*|\1|p' Dockerfile))
+
+echo "${python:-dev}-${alpine:-null}"
