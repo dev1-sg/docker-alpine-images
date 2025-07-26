@@ -3,12 +3,6 @@ name: Schedule testcontainers
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - tests/*
-      - go.mod
-      - go.sum
   pull_request:
     paths:
       - tests/*
@@ -31,7 +25,7 @@ env:
 jobs:
   schedule-testcontainers:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
