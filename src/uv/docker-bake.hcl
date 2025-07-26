@@ -15,7 +15,7 @@ variable "AWS_ECR_PUBLIC_URL" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_NAME" {
-  default = "node-python"
+  default = "uv"
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
@@ -23,7 +23,7 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
-  default = "public.ecr.aws/dev1-sg/alpine/node-python:latest"
+  default = "public.ecr.aws/dev1-sg/alpine/uv:latest"
 }
 
 variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {

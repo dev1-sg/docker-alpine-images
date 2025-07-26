@@ -9,8 +9,6 @@ ENV TZ=Asia/Singapore \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-WORKDIR /app
-
 RUN apk add --no-cache \
     sudo bash git aws-cli curl ca-certificates jq \
     && rm -rf /var/cache/apk/* \
