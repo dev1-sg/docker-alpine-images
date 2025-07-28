@@ -11,9 +11,10 @@ ENV TZ=Asia/Singapore \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
     UV_INSTALL_DIR=/usr/local/bin \
-    UV_INSTALL_DIR=/usr/local/bin \
-    UV_PYTHON_INSTALL_DIR=/opt/python \
-    UV_PYTHON_BIN_DIR=/usr/local/bin
+    UV_PYTHON_INSTALL_DIR=/opt/uv \
+    UV_PYTHON_BIN_DIR=/usr/local/bin \
+    UV_TOOL_DIR=/opt/uv/tool \
+    UV_TOOL_BIN_DIR=/usr/local/bin
 
 RUN apk add --no-cache \
     sudo bash git aws-cli curl ca-certificates jq \
