@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM docker.io/alpine:3.21 AS base
+FROM docker.io/eclipse-temurin:21-alpine-3.21 AS base
 
 USER root
 

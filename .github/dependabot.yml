@@ -14,9 +14,9 @@ updates:
       - /src/alpine
       - /src/dev
       - /src/golang
+      - /src/java
       - /src/node
       - /src/python
-      - /src/uv
     schedule:
       interval: daily
     commit-message:

@@ -1,15 +1,15 @@
 ---
-name: Push uv
+name: Push java
 
 on:
   push:
     branches:
       - main
     paths:
-      - src/uv/*
+      - src/java/*
   pull_request:
     paths:
-      - src/uv/*
+      - src/java/*
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ permissions:
 
 env:
   AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-  AWS_ECR_PUBLIC_IMAGE_NAME: uv
+  AWS_ECR_PUBLIC_IMAGE_NAME: java
   AWS_ECR_PUBLIC_REPOSITORY_GROUP: alpine
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TZ: Asia/Singapore

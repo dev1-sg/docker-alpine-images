@@ -9,7 +9,7 @@ import (
 	"github.com/testcontainers/testcontainers-go"
 )
 
-var Uv = struct {
+var Java = struct {
 	AWS_DEFAULT_REGION              string
 	AWS_ECR_PUBLIC_URI              string
 	AWS_ECR_PUBLIC_REPOSITORY_GROUP string
@@ -19,16 +19,16 @@ var Uv = struct {
 	AWS_DEFAULT_REGION:              "us-east-1",
 	AWS_ECR_PUBLIC_URI:              "public.ecr.aws/dev1-sg",
 	AWS_ECR_PUBLIC_REPOSITORY_GROUP: "alpine",
-	AWS_ECR_PUBLIC_IMAGE_NAME:       "uv",
+	AWS_ECR_PUBLIC_IMAGE_NAME:       "java",
 	AWS_ECR_PUBLIC_IMAGE_TAG:        "latest",
 }
 
-func TestContainersGoPullUv(t *testing.T) {
+func TestContainersGoPullJava(t *testing.T) {
 	ctx := context.Background()
 	for attempt := 0; attempt < 3; attempt++ {
 		container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 			ContainerRequest: testcontainers.ContainerRequest{
-				Image: Uv.AWS_ECR_PUBLIC_URI + "/" + Uv.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Uv.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Uv.AWS_ECR_PUBLIC_IMAGE_TAG,
+				Image: Java.AWS_ECR_PUBLIC_URI + "/" + Java.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Java.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Java.AWS_ECR_PUBLIC_IMAGE_TAG,
 			},
 		})
 		require.NoError(t, e)
@@ -36,11 +36,11 @@ func TestContainersGoPullUv(t *testing.T) {
 	}
 }
 
-func TestContainersGoExecUv(t *testing.T) {
+func TestContainersGoExecJava(t *testing.T) {
 	ctx := context.Background()
 	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: Uv.AWS_ECR_PUBLIC_URI + "/" + Uv.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Uv.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Uv.AWS_ECR_PUBLIC_IMAGE_TAG,
+			Image: Java.AWS_ECR_PUBLIC_URI + "/" + Java.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Java.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Java.AWS_ECR_PUBLIC_IMAGE_TAG,
 			Cmd:   []string{"sleep", "10"},
 		},
 		Started: true,
@@ -49,8 +49,7 @@ func TestContainersGoExecUv(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"uv", "--version"},
-		{"python", "--version"},
+		{"java", "--version"},
 	}
 
 	for _, cmd := range commands {
@@ -65,3 +64,4 @@ func TestContainersGoExecUv(t *testing.T) {
 		require.NotEmpty(t, output)
 	}
 }
+docker-alpine-images/tests/golang_test.go

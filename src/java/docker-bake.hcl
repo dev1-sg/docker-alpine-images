@@ -15,7 +15,7 @@ variable "AWS_ECR_PUBLIC_URL" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_NAME" {
-  default = "uv"
+  default = "java"
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
@@ -23,7 +23,7 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
 }
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
-  default = "public.ecr.aws/dev1-sg/alpine/uv:latest"
+  default = "public.ecr.aws/dev1-sg/alpine/java:latest"
 }
 
 variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {
@@ -75,7 +75,7 @@ target "push" {
   inherits = ["settings", "metadata"]
   dockerfile = "Dockerfile"
   output     = ["type=registry"]
-  platforms  = ["linux/amd64"]
+  platforms  = ["linux/amd64", "linux/arm64"]
   tags = [
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:latest",
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:${AWS_ECR_PUBLIC_IMAGE_TAG}",

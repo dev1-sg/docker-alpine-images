@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-alpine=($(sed -n 's|.*golang:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile))
-golang=($(sed -n 's|.*golang:\([0-9.]*\)-alpine[0-9.]*.*|\1|p' Dockerfile))
+version=$(sed -n 's|.*golang:\([0-9.]*\)-alpine\([0-9.]*\).*|\1-\2|p' Dockerfile)
 
-if [[ -n "${golang}" && -n "${alpine}" ]]; then
-    echo "${golang}-${alpine}"
+if [ -n "$version" ]; then
+    echo "$version"
 else
     echo "latest"
 fi
