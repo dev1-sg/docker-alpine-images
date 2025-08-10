@@ -18,7 +18,16 @@ runs:
     - name: Update Changelog
       shell: bash
       run: |
-        npm install -g conventional-changelog conventional-changelog-angular
+        npm install -g conventional-changelog
         npx conventional-changelog -p angular -i CHANGELOG.md -s
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        if ! git diff --quiet CHANGELOG.md; then
+          git add CHANGELOG.md
+          git commit -m "chore(release): update changelog [skip ci]"
+          git push
+        else
+          echo "No changelog changes to commit"
+        fi
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
