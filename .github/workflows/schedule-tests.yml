@@ -1,5 +1,5 @@
 ---
-name: Schedule testcontainers
+name: Schedule tests
 
 on:
   workflow_dispatch:

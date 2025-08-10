@@ -1,10 +1,10 @@
 ---
-name: Update Changelog
+name: Changelog Updates
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - main
 
 permissions:
   id-token: write
