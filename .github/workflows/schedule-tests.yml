@@ -1,5 +1,5 @@
 ---
-name: Schedule tests
+name: Scheduled tests
 
 on:
   workflow_dispatch:
@@ -22,7 +22,7 @@ env:
   TZ: Asia/Singapore
 
 jobs:
-  schedule-testcontainers:
+  scheduled-tests:
     runs-on: ubuntu-latest
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     steps:
