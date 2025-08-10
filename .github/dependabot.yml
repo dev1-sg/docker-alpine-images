@@ -20,7 +20,7 @@ updates:
     schedule:
       interval: daily
     commit-message:
-      prefix: build
+      prefix: feat
     registries: [dockerhub-registry]
 
   - package-ecosystem: gomod
@@ -28,4 +28,4 @@ updates:
     schedule:
       interval: weekly
     commit-message:
-      prefix: tests
+      prefix: test
