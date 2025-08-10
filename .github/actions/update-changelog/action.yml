@@ -18,7 +18,7 @@ runs:
     - name: Update Changelog
       shell: bash
       run: |
-        npm install -g conventional-changelog
+        npm install -g conventional-changelog conventional-changelog-angular
         npx conventional-changelog -p angular -i CHANGELOG.md -s
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
