@@ -1,0 +1,27 @@
+---
+name: Update Changelog
+
+on:
+  pull_request:
+    types:
+      - closed
+
+permissions:
+  id-token: write
+  contents: write
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  run-on-merge:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update Changelog
+        uses: ./.github/actions/update-changelog
+        with:
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}

@@ -78,11 +78,6 @@ jobs:
         with:
           github-token: ${{ env.GITHUB_TOKEN }}
 
-      - name: Update Changelog
-        uses: ./.github/actions/update-changelog
-        with:
-          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
-
       - name: Auto-merge for Dependabot PR
         run: gh pr merge --auto --rebase ${{ github.event.pull_request.number }}
         env:
