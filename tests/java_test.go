@@ -64,4 +64,3 @@ func TestContainersGoExecJava(t *testing.T) {
 		require.NotEmpty(t, output)
 	}
 }
-docker-alpine-images/tests/golang_test.go
