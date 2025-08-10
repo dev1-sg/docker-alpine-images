@@ -2,9 +2,8 @@
 name: Changelog Updates
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [closed]
 
 permissions:
   id-token: write
