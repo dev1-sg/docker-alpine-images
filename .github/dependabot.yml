@@ -14,7 +14,6 @@ updates:
       - /src/alpine
       - /src/dev
       - /src/golang
-      - /src/java
       - /src/node
       - /src/python
     schedule:
