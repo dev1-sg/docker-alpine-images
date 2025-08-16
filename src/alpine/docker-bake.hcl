@@ -14,6 +14,10 @@ variable "AWS_ECR_PUBLIC_URL" {
   default = "https://ecr-public.us-east-1.amazonaws.com"
 }
 
+variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {
+  default = "alpine"
+}
+
 variable "AWS_ECR_PUBLIC_IMAGE_NAME" {
   default = "alpine"
 }
@@ -24,10 +28,6 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
 
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
   default = "public.ecr.aws/dev1-sg/alpine/alpine:latest"
-}
-
-variable "AWS_ECR_PUBLIC_REPOSITORY_GROUP" {
-  default = "alpine"
 }
 
 group "default" {

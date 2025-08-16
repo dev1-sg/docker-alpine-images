@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-version=$(sed -n 's|.*golang:\([0-9.]*\)-alpine\([0-9.]*\).*|\1-\2|p' Dockerfile)
+export AWS_ECR_PUBLIC_IMAGE_TAG=$(sed -n 's|.*golang:\([0-9.]*\)-alpine\([0-9.]*\).*|\1-\2|p' Dockerfile | head -1)
 
-if [ -n "$version" ]; then
-    echo "$version"
+if [ -n "$GITHUB_ENV" ]; then
+  echo "AWS_ECR_PUBLIC_IMAGE_TAG=$AWS_ECR_PUBLIC_IMAGE_TAG" >> $GITHUB_ENV
 else
-    echo "latest"
+  echo "AWS_ECR_PUBLIC_IMAGE_TAG=$AWS_ECR_PUBLIC_IMAGE_TAG"
 fi

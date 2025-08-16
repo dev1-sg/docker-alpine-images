@@ -1,5 +1,4 @@
-### Python.gitignore
-
+# Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -196,7 +195,8 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-### Go.gitignore
+
+# Go.gitignore
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -221,7 +221,8 @@ go.work.sum
 bin/*
 !bin/.gitkeep
 
-### Global/VisualStudioCode.gitignore
+
+# VisualStudioCode.gitignore
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -235,7 +236,8 @@ bin/*
 # Built Visual Studio Code Extensions
 *.vsix
 
-### Global/Linux.gitignore
+
+# Global/Linux.gitignore
 *~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
@@ -250,7 +252,8 @@ bin/*
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-### Global/Windows.gitignore
+
+# Windows.gitignore
 # Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable
@@ -276,7 +279,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-### macOS.gitignore
+
+# macOS.gitignore
 # General
 .DS_Store
 .AppleDouble
