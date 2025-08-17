@@ -30,10 +30,6 @@ variable "AWS_ECR_PUBLIC_IMAGE_URI" {
   default = "public.ecr.aws/dev1-sg/alpine/python:latest"
 }
 
-group "default" {
-  targets = ["build"]
-}
-
 target "metadata" {
   labels = {
     "org.opencontainers.image.title"       = "${AWS_ECR_PUBLIC_IMAGE_NAME}"
@@ -80,4 +76,8 @@ target "push" {
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:latest",
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:${AWS_ECR_PUBLIC_IMAGE_TAG}",
   ]
+}
+
+group "default" {
+  targets = ["test"]
 }
