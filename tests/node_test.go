@@ -49,10 +49,10 @@ func TestContainersGoExecNode(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"/bin/bash", "-c", "-l", "node --version"},
-		{"/bin/bash", "-c", "-l", "corepack --version"},
-		{"/bin/bash", "-c", "-l", "npm --version"},
-		{"/bin/bash", "-c", "-l", "npx --version"},
+		{"/bin/bash", "-c", "node --version"},
+		{"/bin/bash", "-c", "corepack --version"},
+		{"/bin/bash", "-c", "npm --version"},
+		{"/bin/bash", "-c", "npx --version"},
 	}
 
 	for _, cmd := range commands {

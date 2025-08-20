@@ -49,8 +49,8 @@ func TestContainersGoExecPython(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"/bin/bash", "-c", "-l", "python --version"},
-		{"/bin/bash", "-c", "-l", "pip --version"},
+		{"/bin/bash", "-c", "python --version"},
+		{"/bin/bash", "-c", "pip --version"},
 	}
 
 	for _, cmd := range commands {

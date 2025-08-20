@@ -49,7 +49,7 @@ func TestContainersGoExecGolang(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"/bin/bash", "-c", "-l", "go version"},
+		{"/bin/bash", "-c", "go version"},
 	}
 
 	for _, cmd := range commands {
