@@ -9,6 +9,8 @@ ENV TZ=Asia/Singapore \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
+ENV PATH="/go/bin:/usr/local/go/bin:${PATH}"
+
 RUN apk add --no-cache \
     sudo bash git curl ca-certificates \
     && rm -rf /var/cache/apk/* \
