@@ -41,7 +41,7 @@ func TestContainersGoExecNode(t *testing.T) {
 	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: Node.AWS_ECR_PUBLIC_URI + "/" + Node.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Node.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Node.AWS_ECR_PUBLIC_IMAGE_TAG,
-			Cmd:   []string{"sleep", "10"},
+			Cmd:   []string{"/bin/bash", "-c", "sleep infinity"},
 		},
 		Started: true,
 	})
@@ -49,7 +49,10 @@ func TestContainersGoExecNode(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"node", "--version"},
+		{"/bin/bash", "-c", "-l", "node --version"},
+		{"/bin/bash", "-c", "-l", "corepack --version"},
+		{"/bin/bash", "-c", "-l", "npm --version"},
+		{"/bin/bash", "-c", "-l", "npx --version"},
 	}
 
 	for _, cmd := range commands {

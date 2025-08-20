@@ -41,7 +41,7 @@ func TestContainersGoExecAlpine(t *testing.T) {
 	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: Alpine.AWS_ECR_PUBLIC_URI + "/" + Alpine.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Alpine.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Alpine.AWS_ECR_PUBLIC_IMAGE_TAG,
-			Cmd:   []string{"sleep", "10"},
+			Cmd:   []string{"/bin/bash", "-c", "sleep infinity"},
 		},
 		Started: true,
 	})
@@ -49,7 +49,7 @@ func TestContainersGoExecAlpine(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"echo", "hello world"},
+		{"/bin/bash", "-c", "-l", "echo hello world"},
 	}
 
 	for _, cmd := range commands {

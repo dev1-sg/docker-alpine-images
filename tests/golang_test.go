@@ -41,7 +41,7 @@ func TestContainersGoExecGolang(t *testing.T) {
 	container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
 			Image: Golang.AWS_ECR_PUBLIC_URI + "/" + Golang.AWS_ECR_PUBLIC_REPOSITORY_GROUP + "/" + Golang.AWS_ECR_PUBLIC_IMAGE_NAME + ":" + Golang.AWS_ECR_PUBLIC_IMAGE_TAG,
-			Cmd:   []string{"sleep", "10"},
+			Cmd:   []string{"/bin/bash", "-c", "sleep infinity"},
 		},
 		Started: true,
 	})
@@ -49,7 +49,7 @@ func TestContainersGoExecGolang(t *testing.T) {
 	defer container.Terminate(ctx)
 
 	commands := [][]string{
-		{"go", "version"},
+		{"/bin/bash", "-c", "-l", "go version"},
 	}
 
 	for _, cmd := range commands {

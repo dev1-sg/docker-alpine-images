@@ -9,4 +9,6 @@ ENV TZ=Asia/Singapore \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
+RUN apk add --no-cache bash
+
 WORKDIR /workspace
