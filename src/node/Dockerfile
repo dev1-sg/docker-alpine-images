@@ -10,6 +10,6 @@ ENV TZ=Asia/Singapore \
     LC_ALL=en_US.UTF-8
 
 RUN apk add --no-cache \
-    sudo bash git curl ca-certificates \
+    tzdata musl-locales sudo bash git curl ca-certificates \
     && rm -rf /var/cache/apk/* \
     && ln -s /var/cache/apk /etc/apk/cache

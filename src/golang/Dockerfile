@@ -12,6 +12,6 @@ ENV TZ=Asia/Singapore \
 ENV PATH="/go/bin:/usr/local/go/bin:${PATH}"
 
 RUN apk add --no-cache \
-    sudo bash git curl ca-certificates \
+    tzdata musl-locales sudo bash git curl ca-certificates \
     && rm -rf /var/cache/apk/* \
     && ln -s /var/cache/apk /etc/apk/cache
