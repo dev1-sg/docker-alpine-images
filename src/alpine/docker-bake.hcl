@@ -51,14 +51,14 @@ target "settings" {
 }
 
 target "test" {
-  inherits = ["settings", "metadata"]
+  inherits   = ["settings", "metadata"]
   dockerfile = "Dockerfile"
-  platforms = ["linux/amd64", "linux/arm64"]
-  tags = []
+  platforms  = ["linux/amd64", "linux/arm64"]
+  tags       = []
 }
 
 target "build" {
-  inherits = ["settings", "metadata"]
+  inherits   = ["settings", "metadata"]
   dockerfile = "Dockerfile"
   output     = ["type=docker"]
   tags = [
@@ -68,7 +68,7 @@ target "build" {
 }
 
 target "push" {
-  inherits = ["settings", "metadata"]
+  inherits   = ["settings", "metadata"]
   dockerfile = "Dockerfile"
   output     = ["type=registry"]
   platforms  = ["linux/amd64", "linux/arm64"]

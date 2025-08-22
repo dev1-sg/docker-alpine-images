@@ -26,6 +26,10 @@ variable "AWS_ECR_PUBLIC_IMAGE_TAG" {
   default = "latest"
 }
 
+variable "AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE" {
+  default = "alpine"
+}
+
 variable "AWS_ECR_PUBLIC_IMAGE_URI" {
   default = "public.ecr.aws/dev1-sg/alpine/node:latest"
 }
@@ -48,32 +52,41 @@ target "settings" {
   cache-to = [
     "type=gha,mode=max"
   ]
+  args = {
+    AWSCDK_VERSION = "${AWS_ECR_PUBLIC_IMAGE_TAG}"
+  }
 }
 
 target "test" {
-  inherits = ["settings", "metadata"]
+  inherits   = ["settings", "metadata"]
   dockerfile = "Dockerfile"
-  platforms = ["linux/amd64", "linux/arm64"]
-  tags = []
+  platforms  = ["linux/amd64", "linux/arm64"]
+  tags       = []
 }
 
 target "build" {
-  inherits = ["settings", "metadata"]
+  inherits   = ["settings", "metadata"]
   dockerfile = "Dockerfile"
   output     = ["type=docker"]
   tags = [
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:latest",
+    "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:alpine",
+    "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:alpine${AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE}",
+    "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:${AWS_ECR_PUBLIC_IMAGE_TAG}-alpine${AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE}",
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:${AWS_ECR_PUBLIC_IMAGE_TAG}",
   ]
 }
 
 target "push" {
-  inherits = ["settings", "metadata"]
+  inherits   = ["settings", "metadata"]
   dockerfile = "Dockerfile"
   output     = ["type=registry"]
   platforms  = ["linux/amd64", "linux/arm64"]
   tags = [
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:latest",
+    "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:alpine",
+    "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:alpine${AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE}",
+    "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:${AWS_ECR_PUBLIC_IMAGE_TAG}-alpine${AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE}",
     "${AWS_ECR_PUBLIC_URI}/${AWS_ECR_PUBLIC_REPOSITORY_GROUP}/${AWS_ECR_PUBLIC_IMAGE_NAME}:${AWS_ECR_PUBLIC_IMAGE_TAG}",
   ]
 }
