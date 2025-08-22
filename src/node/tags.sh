@@ -5,9 +5,7 @@ set -e
 alpine=$(sed -n 's|.*node:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile | head -1)
 node=$(sed -n 's|.*node:\([0-9]\+\.[0-9]\+\.[0-9]\+\).*|\1|p' Dockerfile | head -1)
 
-if [ -z "$alpine" ] || [ -z "$node" ]; then
-  exit 1
-fi
+if [ -z "$alpine" ] || [ -z "$node" ]; then exit 1 fi
 
 export AWS_ECR_PUBLIC_IMAGE_TAG="${node}"
 export AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE="${alpine}"

@@ -5,9 +5,7 @@ set -e
 alpine=$(sed -n 's|.*python:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile | head -1)
 python=$(sed -n 's|.*python:\([0-9]\+\.[0-9]\+\.[0-9]\+\).*|\1|p' Dockerfile | head -1)
 
-if [ -z "$alpine" ] || [ -z "$python" ]; then
-  exit 1
-fi
+if [ -z "$alpine" ] || [ -z "$python" ]; then exit 1 fi
 
 export AWS_ECR_PUBLIC_IMAGE_TAG="${python}"
 export AWS_ECR_PUBLIC_IMAGE_TAG_ALPINE="${alpine}"
