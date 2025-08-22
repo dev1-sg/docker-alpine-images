@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 alpine=$(sed -n 's|.*python:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile | head -1)
 python=$(sed -n 's|.*python:\([0-9]\+\.[0-9]\+\.[0-9]\+\).*|\1|p' Dockerfile | head -1)
 

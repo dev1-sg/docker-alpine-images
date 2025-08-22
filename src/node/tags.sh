@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 alpine=$(sed -n 's|.*node:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile | head -1)
 node=$(sed -n 's|.*node:\([0-9]\+\.[0-9]\+\.[0-9]\+\).*|\1|p' Dockerfile | head -1)
 

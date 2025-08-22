@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 alpine=$(sed -n 's|.*golang:[0-9.]*-alpine\([0-9.]*\).*|\1|p' Dockerfile | head -1)
 golang=$(sed -n 's|.*golang:\([0-9]\+\.[0-9]\+\.[0-9]\+\).*|\1|p' Dockerfile | head -1)
 
